@@ -45,8 +45,8 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
         public MyViewHolder(View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.store_img);
-            title = itemView.findViewById(R.id.item_title);
-            subtitle = itemView.findViewById(R.id.item_subtitle);
+            title = itemView.findViewById(R.id.store_name);
+            subtitle = itemView.findViewById(R.id.store_price);
         }
     }
 }
