@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private EditText userET;
@@ -29,6 +30,20 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent regIntent = new Intent(MainActivity.this, RegisterActivity.class);
                 startActivity(regIntent);
+            }
+        });
+
+        loginBUT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String userVulues = userET.getText().toString();
+                String passVulues = passET.getText().toString();
+
+                if (userVulues.equals("admin") && passVulues.equals("admin")) {
+                    Toast.makeText(MainActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "登陆失败", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
