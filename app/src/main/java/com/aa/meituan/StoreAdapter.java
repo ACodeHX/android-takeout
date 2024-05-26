@@ -27,7 +27,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         StoreMinute item = itemList.get(position);
-        holder.title.setText(item.getTitle());
+        holder.title.setText(item.getStoreName());
         holder.subtitle.setText(item.getSubtitle());
         holder.image.setImageResource(item.getImageResourceId());
     }
