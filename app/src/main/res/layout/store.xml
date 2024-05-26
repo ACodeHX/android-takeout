@@ -5,6 +5,11 @@
     android:orientation="horizontal"
     android:padding="8dp">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="500"
+        android:layout_height="400" />
+
     <ImageView
         android:id="@+id/item_image"
         android:layout_width="40dp"
