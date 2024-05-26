@@ -2,13 +2,14 @@ package com.aa.meituan;
 
 public class StoreMinute {
     private String storeName;
-    private String subtitle;
-    private int imageResourceId;
+    private String storePrice;
+    private int storeImage;
 
-    public StoreMinute(String title, String subtitle, int imageResourceId) {
-        this.storeName = title;
-        this.subtitle = subtitle;
-        this.imageResourceId = imageResourceId;
+
+    public StoreMinute(String StoreName, String StorePrice, int storeImage) {
+        this.storeName = StoreName;
+        this.storePrice = StorePrice;
+        this.storeImage = storeImage;
     }
 
     public String getStoreName() {
@@ -16,10 +17,10 @@ public class StoreMinute {
     }
 
     public String getSubtitle() {
-        return subtitle;
+        return storePrice;
     }
 
-    public int getImageResourceId() {
-        return imageResourceId;
+    public int getStoreImage() {
+        return storeImage;
     }
 }

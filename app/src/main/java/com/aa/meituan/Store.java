@@ -27,9 +27,12 @@ public class Store extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         itemList = new ArrayList<>();
 
-        itemList.add(new StoreMinute("美味柠檬", "饮料", R.drawable.must_buy_two));
-        itemList.add(new StoreMinute("烤鸭脖", "菜", R.drawable.recom_three));
-        itemList.add(new StoreMinute("烧鸭","菜",R.drawable.recom_two));
+        itemList.add(new StoreMinute("快乐柠檬", "起送100|配送50", R.drawable.must_buy_two));
+        itemList.add(new StoreMinute("烤鸭脖", "起送30|配送90", R.drawable.recom_three));
+        itemList.add(new StoreMinute("烧鸭","40",R.drawable.recom_two));
+        itemList.add(new StoreMinute("飞机", "起送80|配送99", R.drawable.telegram));
+        itemList.add(new StoreMinute("炸鸡", "起送100|配送120", R.drawable.twitter));
+
 
         storeAdapter = new StoreAdapter(itemList);
         recyclerView.setAdapter(storeAdapter);

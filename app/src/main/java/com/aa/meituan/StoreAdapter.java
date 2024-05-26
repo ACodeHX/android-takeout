@@ -27,9 +27,9 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         StoreMinute item = itemList.get(position);
-        holder.title.setText(item.getStoreName());
-        holder.subtitle.setText(item.getSubtitle());
-        holder.image.setImageResource(item.getImageResourceId());
+        holder.store_name.setText(item.getStoreName());
+        holder.store_price.setText(item.getSubtitle());
+        holder.image.setImageResource(item.getStoreImage());
     }
 
     @Override
@@ -39,14 +39,14 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public ImageView image;
-        public TextView title;
-        public TextView subtitle;
+        public TextView store_name;
+        public TextView store_price;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.store_img);
-            title = itemView.findViewById(R.id.store_name);
-            subtitle = itemView.findViewById(R.id.store_price);
+            store_name = itemView.findViewById(R.id.store_name);
+            store_price = itemView.findViewById(R.id.store_price);
         }
     }
 }
