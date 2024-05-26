@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 String userVulues = userET.getText().toString();
                 String passVulues = passET.getText().toString();
 
-                if (userVulues.equals("admin") && passVulues.equals("admin")) {
+                if (userVulues.equals("a") && passVulues.equals("a")) {
                     Toast.makeText(MainActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
                     Intent StoIntent = new Intent(MainActivity.this, Store.class);
                     startActivity(StoIntent);

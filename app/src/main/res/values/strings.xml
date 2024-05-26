@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">login2</string>
+    <string name="app_name">美团</string>
     <string name="username">用户名</string>
     <string name="passwd">密码</string>
     <string name="newuser">新用户</string>

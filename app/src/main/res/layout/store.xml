@@ -2,20 +2,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:padding="8dp">
+
+    <!--<TextView
+        android:id="@+id/store_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="店铺"
+        android:textSize="50dp"
+        android:gravity="center"/>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:layout_width="500"
-        android:layout_height="400" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <ImageView
-        android:id="@+id/item_image"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="8dp"
-        android:src="@drawable/ic_launcher_background" />
+        android:id="@+id/store_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="lskdjflakjdsfl"
+        android:textSize="10sp" />
 
     <LinearLayout
         android:layout_width="0dp"

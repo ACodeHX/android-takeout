@@ -16,7 +16,7 @@ import java.util.List;
 
 public class Store extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private StoreAdapter myAdapter;
+    private StoreAdapter storeAdapter;
     private List<StoreMinute> itemList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +27,11 @@ public class Store extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         itemList = new ArrayList<>();
 
-        itemList.add(new StoreMinute("title 1", "sub", R.drawable.must_buy_two));
+        itemList.add(new StoreMinute("美味柠檬", "饮料", R.drawable.must_buy_two));
+        itemList.add(new StoreMinute("烤鸭脖", "菜", R.drawable.recom_three));
+        itemList.add(new StoreMinute("烧鸭","菜",R.drawable.recom_two));
 
-        myAdapter = new StoreAdapter(itemList);
-        recyclerView.setAdapter(myAdapter);
+        storeAdapter = new StoreAdapter(itemList);
+        recyclerView.setAdapter(storeAdapter);
     }
 }
