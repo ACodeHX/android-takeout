@@ -30,6 +30,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
         holder.store_name.setText(item.getStoreName());
         holder.store_price.setText(item.getSubtitle());
         holder.image.setImageResource(item.getStoreImage());
+        holder.evaluate.setText(item.getStoreEvaluate());
     }
 
     @Override
@@ -41,12 +42,14 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
         public ImageView image;
         public TextView store_name;
         public TextView store_price;
+        public TextView evaluate;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             image = itemView.findViewById(R.id.store_img);
             store_name = itemView.findViewById(R.id.store_name);
             store_price = itemView.findViewById(R.id.store_price);
+            evaluate = itemView.findViewById(R.id.store_evaluate);
         }
     }
 }
