@@ -51,8 +51,6 @@ public class Store extends AppCompatActivity {
         itemList.add(new StoreMinute("炸鸡", "起送100|配送120", R.drawable.twitter, "好吃", "平日送"));
 
 
-
-
         storeAdapter = new StoreAdapter(itemList);
         recyclerView.setAdapter(storeAdapter);
     }

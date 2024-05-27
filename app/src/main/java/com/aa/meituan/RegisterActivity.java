@@ -9,11 +9,18 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class RegisterActivity extends AppCompatActivity {
+    //private
     private Button retLogin;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
+
+
+
+        //返回登陆界面
         retLogin = findViewById(R.id.returnLogin);
         retLogin.setOnClickListener(new View.OnClickListener() {
             @Override
