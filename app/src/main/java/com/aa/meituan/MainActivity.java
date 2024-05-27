@@ -41,14 +41,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String userVulues = userET.getText().toString();
                 String passVulues = passET.getText().toString();
+                Intent StoIntent = new Intent(MainActivity.this, Store.class);
+                startActivity(StoIntent);
 
-                if (userVulues.equals("a") && passVulues.equals("a")) {
+                /*if (userVulues.equals("a") && passVulues.equals("a")) {
                     Toast.makeText(MainActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
                     Intent StoIntent = new Intent(MainActivity.this, Store.class);
                     startActivity(StoIntent);
                 } else {
                     Toast.makeText(MainActivity.this, "登陆失败", Toast.LENGTH_SHORT).show();
-                }
+                }*/
             }
         });
     }
