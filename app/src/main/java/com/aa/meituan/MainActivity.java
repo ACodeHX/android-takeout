@@ -46,23 +46,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String userValues = userET.getText().toString();
                 String passValues = passET.getText().toString();
-                if (userData.checkUser(userValues, passValues)) {
-                    Toast.makeText(MainActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
-                    Intent StoIntent = new Intent(MainActivity.this, Store.class);
-                    startActivity(StoIntent);
-                } else {
-                    Toast.makeText(MainActivity.this, "登陆失败", Toast.LENGTH_SHORT).show();
-                }
-                /*Intent StoIntent = new Intent(MainActivity.this, Store.class);
-                startActivity(StoIntent);*/
 
-                /*if (userVulues.equals("a") && passVulues.equals("a")) {
-                    Toast.makeText(MainActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
-                    Intent StoIntent = new Intent(MainActivity.this, Store.class);
-                    startActivity(StoIntent);
+                if (userData.isUserExists(userValues)) {
+                    if (userData.checkUser(userValues, passValues)) {
+                        Toast.makeText(MainActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
+                        Intent StoIntent = new Intent(MainActivity.this, Store.class);
+                        startActivity(StoIntent);
+                    } else {
+                        Toast.makeText(MainActivity.this, "登陆失败", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    Toast.makeText(MainActivity.this, "登陆失败", Toast.LENGTH_SHORT).show();
-                }*/
+                    Toast.makeText(MainActivity.this, "用户不存在", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

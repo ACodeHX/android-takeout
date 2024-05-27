@@ -38,6 +38,13 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String userName = newUser.getText().toString();
                 String passVaule = newPass.getText().toString();
+
+                //判断账号和密码是否为空
+                if (userName.isEmpty() || passVaule.isEmpty()) {
+                    Toast.makeText(RegisterActivity.this, "请输入账号和密码", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 if (userDate.insertUser(userName,passVaule)) {
                     saveToFile(userName, passVaule);
                     Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
@@ -61,6 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         }
+        //保存密码和账号到指定文件
     private void saveToFile(String userName, String password) {
         String data = "账号:" + userName + ",密码" + password +  "\n";
         FileOutputStream fos = null;
@@ -70,7 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if (fos!= null) {
+            if (fos != null) {
                 try {
                     fos.close();
                 } catch (IOException e) {
@@ -78,5 +86,9 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+    protected void onDestroy() {
+        super.onDestroy();
+        // 在此处释放资源，防止内存泄漏
     }
 }
