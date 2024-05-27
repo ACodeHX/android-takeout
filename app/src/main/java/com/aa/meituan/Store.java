@@ -28,6 +28,12 @@ public class Store extends AppCompatActivity {
         //获得框架的引用
         FrameLayout frameLayout = findViewById(R.id.Frame1);
         View clickableView = findViewById(R.id.click1);
+        clickableView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Store.this, "hello", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -45,12 +51,7 @@ public class Store extends AppCompatActivity {
         itemList.add(new StoreMinute("炸鸡", "起送100|配送120", R.drawable.twitter, "好吃", "平日送"));
 
 
-        clickableView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(Store.this, "hello", Toast.LENGTH_SHORT).show();
-            }
-        });
+
 
         storeAdapter = new StoreAdapter(itemList);
         recyclerView.setAdapter(storeAdapter);
