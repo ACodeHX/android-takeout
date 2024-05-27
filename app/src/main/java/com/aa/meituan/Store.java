@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -23,6 +25,10 @@ public class Store extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.store);
 
+        //获得框架的引用
+        FrameLayout frameLayout = findViewById(R.id.Frame1);
+        View clickableView = findViewById(R.id.click1);
+
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         itemList = new ArrayList<>();
@@ -38,6 +44,13 @@ public class Store extends AppCompatActivity {
         itemList.add(new StoreMinute("飞机", "起送80|配送99", R.drawable.telegram, "好吃", "平日送"));
         itemList.add(new StoreMinute("炸鸡", "起送100|配送120", R.drawable.twitter, "好吃", "平日送"));
 
+
+        clickableView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Store.this, "hello", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         storeAdapter = new StoreAdapter(itemList);
         recyclerView.setAdapter(storeAdapter);
