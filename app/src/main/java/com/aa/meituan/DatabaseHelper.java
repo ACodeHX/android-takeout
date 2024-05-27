@@ -17,6 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        SQLiteDatabase.loadLibs(context);
     }
 
     @Override
@@ -33,17 +34,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void insertUser(String username, String password) {
+    public boolean insertUser(String username, String password) {
+        if (isUserExists(username)) {
+            return false; // 用户已存在
+        }
+
         SQLiteDatabase db = getWritableDatabase(PASSPHRASE);
         db.execSQL("INSERT INTO " + TABLE_NAME + " (" + COLUMN_USERNAME + ", " + COLUMN_PASSWORD + ") VALUES (?, ?)",
                 new Object[]{username, password});
         db.close();
+        return true;
     }
 
     public boolean checkUser(String username, String password) {
         SQLiteDatabase db = getReadableDatabase(PASSPHRASE);
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_USERNAME + " = ? AND " + COLUMN_PASSWORD + " = ?",
                 new String[]{username, password});
+        boolean exists = (cursor.getCount() > 0);
+        cursor.close();
+        db.close();
+        return exists;
+    }
+
+    public boolean isUserExists(String username) {
+        SQLiteDatabase db = getReadableDatabase(PASSPHRASE);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_USERNAME + " = ?",
+                new String[]{username});
         boolean exists = (cursor.getCount() > 0);
         cursor.close();
         db.close();

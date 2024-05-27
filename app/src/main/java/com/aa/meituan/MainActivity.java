@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         userData = new DatabaseHelper(this);
         RecyclerView recyclerView;
         Store storeAdapter;
-
+        // 前往注册的按钮
         regBUT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // 登陆按钮
         loginBUT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
