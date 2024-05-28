@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -31,10 +32,12 @@ public class TakeOut extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        ImageView storeImage = findViewById(R.id.store_img1);
+        int i = R.drawable.telegram;
         takeOutValueList = new ArrayList<>();
 
         // 添加商店信息
-        takeOutValueList.add(new TakeOutValue("ks", 5.0, 5, "telegram"));
+        takeOutValueList.add(new TakeOutValue("ks", 5.0, 5, "telegram", i));
 
         TakeOutAdapter adapter = new TakeOutAdapter(takeOutValueList, this);
         recyclerView.setAdapter(adapter);
@@ -63,7 +66,4 @@ public class TakeOut extends AppCompatActivity {
         }
     }
 
-    private void updateFooter() {
-        // 实现更新Footer的逻辑
-    }
 }
