@@ -2,6 +2,7 @@ package com.aa.meituan;
 
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +20,8 @@ public class TakeOut extends AppCompatActivity {
     private RecyclerView recyclerView;
     private TextView totalPriceTextView;
     private Button checkoutButton;
+    private TextView footerTextView;
+    private Button footerButton;
     private List<TakeOutValue> takeOutValueList;
 
     @Override
@@ -29,6 +32,8 @@ public class TakeOut extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_view);
         totalPriceTextView = findViewById(R.id.Store3);
         checkoutButton = findViewById(R.id.checkout_button);
+        footerTextView = findViewById(R.id.footer_text);
+        footerButton = findViewById(R.id.footer_button);
 
         takeOutValueList = loadMealsFromJson();
 
@@ -40,7 +45,7 @@ public class TakeOut extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
-        updateTotalPrice();
+        updateFooter();
     }
 
     private List<TakeOutValue> loadMealsFromJson() {
@@ -62,15 +67,27 @@ public class TakeOut extends AppCompatActivity {
         return gson.fromJson(json, mealListType);
     }
 
-    private void updateTotalPrice() {
-        if (takeOutValueList == null) {
-            totalPriceTextView.setText("Total: $0.00");
+    private void updateFooter() {
+        if (takeOutValueList == null || takeOutValueList.isEmpty()) {
+            footerTextView.setText("未选商品");
+            footerButton.setText("$20起送");
+            footerButton.setEnabled(false);
             return;
         }
+
         double totalPrice = 0;
         for (TakeOutValue takeOutValue : takeOutValueList) {
             totalPrice += takeOutValue.getPrice() * takeOutValue.getQuantity();
         }
-        totalPriceTextView.setText(String.format("Total: $%.2f", totalPrice));
+
+        if (totalPrice > 0) {
+            footerTextView.setText(String.format("Total: $%.2f\n配送费 $5", totalPrice));
+            footerButton.setText("去结算");
+            footerButton.setEnabled(true);
+        } else {
+            footerTextView.setText("未选商品");
+            footerButton.setText("$20起送");
+            footerButton.setEnabled(false);
+        }
     }
 }
