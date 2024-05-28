@@ -4,11 +4,16 @@ public class TakeOutValue {
     private String name;
     private double price;
     private int quantity;
+    private String imageUrl; // 添加图像 URL 字段
+    private String image;
 
-    public TakeOutValue(String name, double price, int quantity) {
+    public TakeOutValue(String name, double price, int quantity, String image) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
+        this.image = image;
+        //this.imageUrl = imageUrl;
+
     }
 
     public String getName() {
@@ -21,5 +26,25 @@ public class TakeOutValue {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

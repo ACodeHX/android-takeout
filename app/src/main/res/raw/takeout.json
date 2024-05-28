@@ -2,11 +2,13 @@
   {
     "name": "Dish 1",
     "image": "twitter",
+    "imageUrl": "res/drawable/must_buy_two.png",
     "price": 12.99
   },
   {
     "name": "Dish 2",
     "image": "telegram",
+    "imageUrl": "res/drawable/recom_three.png",
     "price": 8.99
   }
 ]

@@ -1,8 +1,8 @@
 package com.aa.meituan;
 
+import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,26 +30,18 @@ public class TakeOut extends AppCompatActivity {
         setContentView(R.layout.take_out2);
 
         recyclerView = findViewById(R.id.recycler_view);
-        totalPriceTextView = findViewById(R.id.Store3);
-        checkoutButton = findViewById(R.id.checkout_button);
-        footerTextView = findViewById(R.id.footer_text);
-        footerButton = findViewById(R.id.footer_button);
-
-        takeOutValueList = loadMealsFromJson();
-
-        if (takeOutValueList == null) {
-            takeOutValueList = new ArrayList<>();
-        }
-
-        TakeOutAdapter adapter = new TakeOutAdapter(takeOutValueList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
+        takeOutValueList = new ArrayList<>();
 
-        updateFooter();
+        // 添加商店信息
+        takeOutValueList.add(new TakeOutValue("ks", 5.0, 5, "telegram"));
+
+        TakeOutAdapter adapter = new TakeOutAdapter(takeOutValueList, this);
+        recyclerView.setAdapter(adapter);
     }
 
-    private List<TakeOutValue> loadMealsFromJson() {
-        String json = null;
+
+    private void loadMealsFromJson() {
         try {
             AssetManager assetManager = getAssets();
             InputStream is = assetManager.open("takeout.json");
@@ -57,37 +49,21 @@ public class TakeOut extends AppCompatActivity {
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
-            json = new String(buffer, "UTF-8");
+            String json = new String(buffer, "UTF-8");
+
+            Gson gson = new Gson();
+            Type mealListType = new TypeToken<List<TakeOutValue>>() {}.getType();
+            List<TakeOutValue> meals = gson.fromJson(json, mealListType);
+
+            if (meals != null) {
+                takeOutValueList.addAll(meals);
+            }
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-
-        Gson gson = new Gson();
-        Type mealListType = new TypeToken<List<TakeOutValue>>() {}.getType();
-        return gson.fromJson(json, mealListType);
     }
 
     private void updateFooter() {
-        if (takeOutValueList == null || takeOutValueList.isEmpty()) {
-            footerTextView.setText("未选商品");
-            footerButton.setText("$20起送");
-            footerButton.setEnabled(false);
-            return;
-        }
-
-        double totalPrice = 0;
-        for (TakeOutValue takeOutValue : takeOutValueList) {
-            totalPrice += takeOutValue.getPrice() * takeOutValue.getQuantity();
-        }
-
-        if (totalPrice > 0) {
-            footerTextView.setText(String.format("Total: $%.2f\n配送费 $5", totalPrice));
-            footerButton.setText("去结算");
-            footerButton.setEnabled(true);
-        } else {
-            footerTextView.setText("未选商品");
-            footerButton.setText("$20起送");
-            footerButton.setEnabled(false);
-        }
+        // 实现更新Footer的逻辑
     }
 }

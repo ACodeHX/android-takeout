@@ -16,7 +16,7 @@ public class TakeOutAdapter extends RecyclerView.Adapter<TakeOutAdapter.MealView
     private List<TakeOutValue> takeOutValues;
     private Context context;
 
-    public TakeOutAdapter(List<TakeOutValue> takeOutValues) {
+    public TakeOutAdapter(List<TakeOutValue> takeOutValues, Context context) {
         this.takeOutValues = takeOutValues;
         this.context = context;
     }
@@ -35,7 +35,16 @@ public class TakeOutAdapter extends RecyclerView.Adapter<TakeOutAdapter.MealView
         holder.priceTextView.setText(String.format("$%.2f", takeOutValue.getPrice()));
         holder.quantityTextView.setText(String.valueOf(takeOutValue.getQuantity()));
 
+        // 使用 Glide 加载图像
+        Glide.with(context).load(takeOutValue.getImage()).into(holder.imageView);
 
+        holder.addButton.setOnClickListener(v -> {
+            // 处理加入购物车逻辑
+            // 例如更新数量，通知适配器数据集变化等
+            takeOutValue.setQuantity(takeOutValue.getQuantity() + 1);
+            notifyItemChanged(position);
+            // 如果需要更新总价，可以调用 updateTotalPrice()
+        });
     }
 
     @Override
@@ -45,12 +54,16 @@ public class TakeOutAdapter extends RecyclerView.Adapter<TakeOutAdapter.MealView
 
     static class MealViewHolder extends RecyclerView.ViewHolder {
         TextView nameTextView, priceTextView, quantityTextView;
+        ImageView imageView;
+        Button addButton;
 
         MealViewHolder(View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.meal_name);
             priceTextView = itemView.findViewById(R.id.meal_price);
             quantityTextView = itemView.findViewById(R.id.meal_quantity);
+            imageView = itemView.findViewById(R.id.meal_image);
+            addButton = itemView.findViewById(R.id.meal_add_button);
         }
     }
 }

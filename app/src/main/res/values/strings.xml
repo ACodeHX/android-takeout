@@ -4,4 +4,5 @@
     <string name="passwd">密码</string>
     <string name="newuser">新用户</string>
     <string name="newPass">新密码</string>
+    <string name="meal_image">Meal Image</string>
 </resources>
