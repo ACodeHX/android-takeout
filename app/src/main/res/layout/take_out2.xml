@@ -50,24 +50,35 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 
+    <TextView
+        android:id="@+id/menu1"
+        android:layout_width="436dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="26dp"
+        android:text="菜单"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header_frame" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="439dp"
         android:layout_height="500dp"
-        app:layout_constraintBottom_toTopOf="@id/checkout_button"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.312"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header_frame"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/menu1" />
 
-    <Button
-        android:id="@+id/checkout_button"
-        android:layout_width="393dp"
-        android:layout_height="72dp"
-        android:text="Checkout"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <FrameLayout
+        android:layout_width="451dp"
+        android:layout_height="79dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_view">
+
+    </FrameLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
