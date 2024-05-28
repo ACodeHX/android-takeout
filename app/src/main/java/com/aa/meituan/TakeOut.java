@@ -38,6 +38,7 @@ public class TakeOut extends AppCompatActivity {
 
         // 添加商店信息
         takeOutValueList.add(new TakeOutValue("ks", 5.0, 5, "telegram", i));
+        takeOutValueList.add(new TakeOutValue("ksdjf", 4,0, "twitter", i));
 
         TakeOutAdapter adapter = new TakeOutAdapter(takeOutValueList, this);
         recyclerView.setAdapter(adapter);
