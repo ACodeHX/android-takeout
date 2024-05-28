@@ -1,5 +1,6 @@
 package com.aa.meituan;
 
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,6 +12,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TakeOut extends AppCompatActivity {
@@ -25,10 +27,15 @@ public class TakeOut extends AppCompatActivity {
         setContentView(R.layout.take_out2);
 
         recyclerView = findViewById(R.id.recycler_view);
-        totalPriceTextView = findViewById(R.id.total_price);
+        totalPriceTextView = findViewById(R.id.Store3);
         checkoutButton = findViewById(R.id.checkout_button);
 
         takeOutValueList = loadMealsFromJson();
+
+        if (takeOutValueList == null) {
+            takeOutValueList = new ArrayList<>();
+        }
+
         TakeOutAdapter adapter = new TakeOutAdapter(takeOutValueList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
@@ -39,7 +46,8 @@ public class TakeOut extends AppCompatActivity {
     private List<TakeOutValue> loadMealsFromJson() {
         String json = null;
         try {
-            InputStream is = getAssets().open("meals.json");
+            AssetManager assetManager = getAssets();
+            InputStream is = assetManager.open("takeout.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -55,6 +63,10 @@ public class TakeOut extends AppCompatActivity {
     }
 
     private void updateTotalPrice() {
+        if (takeOutValueList == null) {
+            totalPriceTextView.setText("Total: $0.00");
+            return;
+        }
         double totalPrice = 0;
         for (TakeOutValue takeOutValue : takeOutValueList) {
             totalPrice += takeOutValue.getPrice() * takeOutValue.getQuantity();

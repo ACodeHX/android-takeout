@@ -25,6 +25,7 @@
         <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".Store"></activity>
         <activity android:name=".StoreMinute"></activity>
+        <activity android:name=".TakeOut" />
     </application>
 
 </manifest>

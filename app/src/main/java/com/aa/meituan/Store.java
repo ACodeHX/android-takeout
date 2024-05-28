@@ -1,5 +1,6 @@
 package com.aa.meituan;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,7 +32,8 @@ public class Store extends AppCompatActivity {
         clickableView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Store.this, "hello", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Store.this, TakeOut.class);
+                startActivity(intent);
             }
         });
 
