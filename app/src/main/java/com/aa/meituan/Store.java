@@ -31,7 +31,7 @@ public class Store extends AppCompatActivity {
 
         //获得框架的引用
         //FrameLayout frameLayout = findViewById(R.id.Frame1);
-        View clickableView = findViewById(R.id.click1);
+        View clickableView = findViewById(R.id.click1);     //点击区域
         clickableView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

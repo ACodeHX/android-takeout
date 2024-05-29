@@ -23,6 +23,7 @@ public class TakeOutAdapter extends RecyclerView.Adapter<TakeOutAdapter.MealView
 
     @NonNull
     @Override
+    //这个变量名重构一下
     public MealViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.take_out_item, parent, false);
         return new MealViewHolder(view);

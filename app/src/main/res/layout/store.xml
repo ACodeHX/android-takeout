@@ -34,17 +34,12 @@
                 android:layout_height="57dp"
                 android:layout_marginTop="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.504"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" >
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="0dp"
@@ -55,45 +50,37 @@
         app:layout_constraintTop_toTopOf="@+id/guideline"
         app:layout_constraintVertical_bias="0.0" />
 
-    <View
-        android:id="@+id/click1"
-        android:layout_width="377dp"
-        android:layout_height="81dp"
-        app:layout_constraintStart_toStartOf="@+id/recycler_view"
-        app:layout_constraintTop_toTopOf="@+id/recycler_view" />
-
 
     <TextView
         android:id="@+id/store_name"
-        android:layout_width="54dp"
-        android:layout_height="22dp"
-        app:layout_constraintEnd_toStartOf="@+id/store_evaluate"
-        app:layout_constraintTop_toTopOf="@+id/recycler_view" />
+        android:layout_width="87dp"
+        android:layout_height="43dp"
+        app:layout_constraintEnd_toStartOf="@+id/deliveryTime"
+        app:layout_constraintStart_toEndOf="@+id/store_evaluate"
+        app:layout_constraintTop_toTopOf="@+id/click1" />
 
     <TextView
         android:id="@+id/store_price"
         android:layout_width="61dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="@+id/click1"
         app:layout_constraintEnd_toEndOf="@+id/click1" />
-
 
     <TextView
         android:id="@+id/store_evaluate"
         android:layout_width="53dp"
         android:layout_height="36dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="28dp"
-        app:layout_constraintEnd_toStartOf="@+id/deliveryTime"
-        app:layout_constraintTop_toTopOf="@+id/recycler_view" />
+        app:layout_constraintStart_toEndOf="@+id/store_img"
+        app:layout_constraintTop_toTopOf="@+id/click1" />
 
     <TextView
         android:id="@+id/deliveryTime"
         android:layout_width="35dp"
         android:layout_height="40dp"
+        android:layout_marginEnd="44dp"
         app:layout_constraintEnd_toStartOf="@+id/store_price"
-        app:layout_constraintTop_toTopOf="@+id/recycler_view" />
+        app:layout_constraintTop_toTopOf="@+id/click1" />
 
     <ImageView
         android:id="@+id/store_img"
@@ -105,11 +92,18 @@
         app:layout_constraintStart_toStartOf="@+id/click1" />
 
 
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="186dp" />
+        app:layout_constraintGuide_begin="272dp" />
+
+    <View
+        android:id="@+id/click1"
+        android:layout_width="377dp"
+        android:layout_height="81dp"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_view"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
