@@ -44,8 +44,8 @@ public class Store extends AppCompatActivity {
         itemList = new ArrayList<>();
 
 
-        itemList.add(new StoreMinute("快乐柠檬", "起送100|配送50", R.drawable.must_buy_two, "好吃", "平日送"));
-        itemList.add(new StoreMinute("烤鸭脖", "起送30|配送90", R.drawable.recom_three, "好吃", "平日送"));
+        itemList.add(new StoreMinute("快乐柠檬", "起送100|配送50", R.drawable.must_buy_two, "好吃", "平日送", TakeOut.class));
+        /*itemList.add(new StoreMinute("烤鸭脖", "起送30|配送90", R.drawable.recom_three, "好吃", "平日送"));
         itemList.add(new StoreMinute("烧鸭","40",R.drawable.recom_two, "好吃", "平日送"));
         itemList.add(new StoreMinute("飞机", "起送80|配送99", R.drawable.telegram, "好吃", "平日送"));
         itemList.add(new StoreMinute("炸鸡", "起送100|配送120", R.drawable.twitter, "好吃", "平日送"));
@@ -54,9 +54,9 @@ public class Store extends AppCompatActivity {
         itemList.add(new StoreMinute("烧鸭","40",R.drawable.recom_two, "好吃", "平日送"));
         itemList.add(new StoreMinute("飞机", "起送80|配送99", R.drawable.telegram, "好吃", "平日送"));
         itemList.add(new StoreMinute("炸鸡", "起送100|配送120", R.drawable.twitter, "好吃", "平日送"));
+*/
 
-
-        storeAdapter = new StoreAdapter(itemList);
+        storeAdapter = new StoreAdapter(this, itemList);
         recyclerView.setAdapter(storeAdapter);
     }
 }

@@ -1,10 +1,14 @@
 package com.aa.meituan;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,8 +17,10 @@ import java.util.List;
 
 public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder> {
     private List<StoreMinute> itemList;
+    private Context context;
     //接受List<StoreMinute>,初始化itemList
-    public StoreAdapter(List<StoreMinute> itemList) {
+    public StoreAdapter(Context context, List<StoreMinute> itemList) {
+        this.context = context;
         this.itemList = itemList;
     }
 
@@ -33,6 +39,26 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
         holder.image.setImageResource(item.getStoreImage());
         holder.evaluate.setText(item.getStoreEvaluate());
         holder.deliveryTime.setText(item.getDeliveryTime());
+
+        // 检查 targetActivity 是否为空
+        if (item.getTargetActivity() != null) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, item.getTargetActivity());
+                    context.startActivity(intent);
+                }
+            });
+        } else {
+            // 打印日志或显示提示信息
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // 例如：弹出 Toast 提示
+                    Toast.makeText(context, "未指定跳转的目标活动", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
     @Override
@@ -46,6 +72,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
         public TextView store_price;
         public TextView evaluate;
         public TextView deliveryTime;
+
 
         public MyViewHolder(View itemView) {
             super(itemView);
