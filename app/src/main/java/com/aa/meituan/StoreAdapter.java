@@ -13,7 +13,7 @@ import java.util.List;
 
 public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder> {
     private List<StoreMinute> itemList;
-
+    //接受List<StoreMinute>,初始化itemList
     public StoreAdapter(List<StoreMinute> itemList) {
         this.itemList = itemList;
     }
@@ -21,10 +21,10 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.store, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.storeitem, parent, false);
         return new MyViewHolder(view);
     }
-
+    //绑定数据到视图
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         StoreMinute item = itemList.get(position);

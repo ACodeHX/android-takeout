@@ -2,14 +2,9 @@ package com.aa.meituan;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -31,20 +26,20 @@ public class Store extends AppCompatActivity {
 
         //获得框架的引用
         //FrameLayout frameLayout = findViewById(R.id.Frame1);
-        View clickableView = findViewById(R.id.click1);     //点击区域
+        /*View clickableView = findViewById(R.id.click1);     //点击区域
         clickableView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Store.this, TakeOut.class);
                 startActivity(intent);
             }
-        });
+        });*/
         showStore = findViewById(R.id.textView2);
         showStore.setText("店铺");
         showImage = findViewById(R.id.imageView2);
         showImage.setImageResource(R.drawable.microsoft);
 
-        recyclerView = findViewById(R.id.recycler_view);
+        recyclerView = findViewById(R.id.recycler_view1);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         itemList = new ArrayList<>();
 
