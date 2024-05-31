@@ -14,7 +14,9 @@ import java.util.List;
 
 public class TakeOutAdapter extends RecyclerView.Adapter<TakeOutAdapter.MealViewHolder> {
     private List<TakeOutValue> takeOutValues;
+    Button addToCartButton;
     private Context context;
+
 
     public TakeOutAdapter(List<TakeOutValue> takeOutValues, Context context) {
         this.takeOutValues = takeOutValues;
@@ -44,6 +46,8 @@ public class TakeOutAdapter extends RecyclerView.Adapter<TakeOutAdapter.MealView
             // 处理加入购物车逻辑
             // 例如更新数量，通知适配器数据集变化等
             takeOutValue.setQuantity(takeOutValue.getQuantity() + 1);
+            double priceToAdd = takeOutValue.getPrice();
+            //((TakeOut) context).totalPrice += priceToAdd;
             notifyItemChanged(position);
             // 如果需要更新总价，可以调用 updateTotalPrice()
         });

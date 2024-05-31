@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -26,6 +27,7 @@ public class TakeOut extends AppCompatActivity {
     private RecyclerView recyclerView;
     private TextView totalPriceTextView;
     private Button judgePay;
+    private double totalPrice = 0.0; // 跟踪总价
     private List<TakeOutValue> takeOutValueList;
 
     @Override
@@ -50,8 +52,13 @@ public class TakeOut extends AppCompatActivity {
         judgePay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(TakeOut.this, Pay.class);
-                startActivity(intent);
+                if (totalPrice > 0) {
+                    Intent intent = new Intent(TakeOut.this, Pay.class);
+                    intent.putExtra("totalPrice", totalPrice);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(TakeOut.this, "购物车为空,请先选择菜品", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
