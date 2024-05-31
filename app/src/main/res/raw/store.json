@@ -1,0 +1,16 @@
+[
+  {
+    "storeName": "快乐柠檬",
+    "storePrice": "起送100|配送50",
+    "storeImage": "must_buy_two",
+    "storeEvaluate": "好吃",
+    "deliveryTime": "平日送"
+  },
+  {
+    "storeName": "烤鸭脖",
+    "storePrice": "起送30|配送90",
+    "storeImage": "recom_three",
+    "storeEvaluate": "好吃",
+    "deliveryTime": "平日送"
+  }
+]

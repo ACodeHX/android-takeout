@@ -13,6 +13,8 @@ import androidx.annotation.NonNull;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.aa.meituan.StoreMinute;
+
 import java.util.List;
 
 public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder> {
@@ -36,34 +38,22 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
         StoreMinute item = itemList.get(position);
         holder.store_name.setText(item.getStoreName());
         holder.store_price.setText(item.getSubtitle());
-        holder.image.setImageResource(item.getStoreImage());
+        //older.image.setImageResource(item.getStoreImage());
+        holder.image.setImageResource(context.getResources().getIdentifier(item.getStoreImage(), "drawable", context.getPackageName()));
         holder.evaluate.setText(item.getStoreEvaluate());
         holder.deliveryTime.setText(item.getDeliveryTime());
 
-        // 检查 targetActivity 是否为空
-        if (item.getTargetActivity() != null) {
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context, item.getTargetActivity());
-                    context.startActivity(intent);
-                }
-            });
-        } else {
-            // 打印日志或显示提示信息
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // 例如：弹出 Toast 提示
-                    Toast.makeText(context, "未指定跳转的目标活动", Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return itemList.size();
+        return itemList != null ? itemList.size() : 0;
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {

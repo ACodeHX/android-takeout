@@ -3,19 +3,17 @@ package com.aa.meituan;
 public class StoreMinute {
     private String storeName;
     private String storePrice;
-    private int storeImage;
+    private String storeImage;
     private String storeEvaluate;
     private String deliveryTime;
-    private Class<?> targetActivity;    //指示点击该条目时应跳转的目标活动
+    private transient int storeImageId;
 
-
-    public StoreMinute(String StoreName, String StorePrice, int storeImage, String storeEvaluate, String deliveryTime,Class<?> targetActivity) {
+    public StoreMinute(String StoreName, String StorePrice, String storeImage, String storeEvaluate, String deliveryTime) {
         this.storeName = StoreName;
         this.storePrice = StorePrice;
         this.storeImage = storeImage;
         this.storeEvaluate = storeEvaluate;
         this.deliveryTime = deliveryTime;
-        this.targetActivity = targetActivity;
     }
 
     public String getStoreName() {
@@ -26,17 +24,25 @@ public class StoreMinute {
         return storePrice;
     }
 
-    public int getStoreImage() {
+    public String getStoreImage() {
         return storeImage;
+    }
+
+    public void setStoreImage(String storeImage) {
+        this.storeImage = storeImage;
+    }
+
+    public int getStoreImageId() {
+        return storeImageId;
+    }
+
+    public void setStoreImageId(int storeImageId) {
+        this.storeImageId = storeImageId;
     }
 
     public String getStoreEvaluate() { return  storeEvaluate; }
 
     public String getDeliveryTime() {
         return deliveryTime;
-    }
-
-    public Class<?> getTargetActivity() {
-        return targetActivity;
     }
 }
