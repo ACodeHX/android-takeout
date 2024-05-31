@@ -1,7 +1,9 @@
 package com.aa.meituan;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -23,7 +25,7 @@ import java.util.List;
 public class TakeOut extends AppCompatActivity {
     private RecyclerView recyclerView;
     private TextView totalPriceTextView;
-    private Button checkoutButton;
+    private Button judgePay;
     private List<TakeOutValue> takeOutValueList;
 
     @Override
@@ -43,6 +45,15 @@ public class TakeOut extends AppCompatActivity {
 
         // 更新适配器数据
         adapter.notifyDataSetChanged();
+
+        judgePay = findViewById(R.id.payFood);
+        judgePay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TakeOut.this, Pay.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void loadMealsFromJson() {
