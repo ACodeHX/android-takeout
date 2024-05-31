@@ -1,7 +1,10 @@
 package com.aa.meituan;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +28,7 @@ public class Store extends AppCompatActivity {
     private List<StoreMinute> itemList;
     private TextView showStore;
     private ImageView showImage;
+    private Button skipTakeout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,15 @@ public class Store extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_view1);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         itemList = new ArrayList<>();
+
+        skipTakeout = findViewById(R.id.judgetake1);
+        skipTakeout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Store.this, TakeOut.class);
+                startActivity(intent);
+            }
+        });
 
         // 修正此处调用正确的 JSON 加载方法
         String jsonString = loadJSONFromRaw(R.raw.store);

@@ -37,7 +37,7 @@ public class TakeOutAdapter extends RecyclerView.Adapter<TakeOutAdapter.MealView
         holder.quantityTextView.setText(String.valueOf(takeOutValue.getQuantity()));
 
         // 使用 Glide 加载图像
-        Glide.with(context).load(takeOutValue.getImage()).into(holder.imageView);
+        Glide.with(context).load(takeOutValue.getImageUrl()).into(holder.imageView);
 
         holder.addButton.setOnClickListener(v -> {
             // 处理加入购物车逻辑

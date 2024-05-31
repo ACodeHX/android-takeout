@@ -24,9 +24,9 @@
                 android:layout_height="0dp"
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/store2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/Store3" />
+                app:layout_constraintTop_toBottomOf="@+id/Store3" />
 
             <TextView
                 android:id="@+id/Store3"
@@ -37,7 +37,7 @@
                 android:textSize="30dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/textView3"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.131" />
 
@@ -45,9 +45,8 @@
                 android:id="@+id/store2"
                 android:layout_width="111dp"
                 android:layout_height="77dp"
-                android:layout_marginTop="76dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/textView3" />
+                app:layout_constraintTop_toBottomOf="@+id/Store3" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
@@ -101,15 +100,5 @@
             app:layout_constraintBottom_toBottomOf="parent" />
 
     </FrameLayout>
-
-    <ImageView
-        android:id="@+id/store_img1"
-        android:layout_width="67dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@+id/recycler_view"
-        app:layout_constraintTop_toBottomOf="@+id/menu1"
-         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
