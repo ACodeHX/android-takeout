@@ -36,8 +36,9 @@ public class TakeOutAdapter extends RecyclerView.Adapter<TakeOutAdapter.MealView
         holder.priceTextView.setText(String.format("$%.2f", takeOutValue.getPrice()));
         holder.quantityTextView.setText(String.valueOf(takeOutValue.getQuantity()));
 
-        // 使用 Glide 加载图像
-        Glide.with(context).load(takeOutValue.getImageUrl()).into(holder.imageView);
+        // 使用资源 ID 加载图像
+        int imageResId = getImageResourceId(takeOutValue.getImage());
+        holder.imageView.setImageResource(imageResId);
 
         holder.addButton.setOnClickListener(v -> {
             // 处理加入购物车逻辑
@@ -51,6 +52,10 @@ public class TakeOutAdapter extends RecyclerView.Adapter<TakeOutAdapter.MealView
     @Override
     public int getItemCount() {
         return takeOutValues.size();
+    }
+
+    private int getImageResourceId(String imageName) {
+        return context.getResources().getIdentifier(imageName, "drawable", context.getPackageName());
     }
 
     static class MealViewHolder extends RecyclerView.ViewHolder {

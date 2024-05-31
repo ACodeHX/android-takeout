@@ -8,14 +8,11 @@ public class TakeOutValue {
     private String image;
     private int imageID;
 
-    public TakeOutValue(String name, double price, int quantity, String image, int imageID) {
+    public TakeOutValue(String name, double price, int quantity, String image) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
         this.image = image;
-        this.imageID = imageID;
-        //this.imageUrl = imageUrl;
-
     }
 
     public String getName() {
@@ -48,12 +45,5 @@ public class TakeOutValue {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public int getImageID() {
-        return imageID;
-    }
-    public void setImageID() {
-        this.imageID = imageID;
     }
 }

@@ -1,6 +1,7 @@
 package com.aa.meituan;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -67,5 +68,9 @@ public class TakeOut extends AppCompatActivity {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+
+    private int getImageResourceId(String imageName) {
+        return getResources().getIdentifier(imageName, "drawable", getPackageName());
     }
 }
