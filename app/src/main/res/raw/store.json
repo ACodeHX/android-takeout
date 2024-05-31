@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "storeName": "快乐柠檬",
     "storePrice": "起送100|配送50",
     "storeImage": "must_buy_two",
@@ -7,6 +8,7 @@
     "deliveryTime": "平日送"
   },
   {
+    "id": 2,
     "storeName": "烤鸭脖",
     "storePrice": "起送30|配送90",
     "storeImage": "recom_three",

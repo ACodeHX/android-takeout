@@ -1,6 +1,7 @@
 package com.aa.meituan;
 
 public class StoreMinute {
+    private int storeID;
     private String storeName;
     private String storePrice;
     private String storeImage;
@@ -8,12 +9,21 @@ public class StoreMinute {
     private String deliveryTime;
     private transient int storeImageId;
 
-    public StoreMinute(String StoreName, String StorePrice, String storeImage, String storeEvaluate, String deliveryTime) {
+    public StoreMinute(int storeID,String StoreName, String StorePrice, String storeImage, String storeEvaluate, String deliveryTime) {
+        this.storeID = storeID;
         this.storeName = StoreName;
         this.storePrice = StorePrice;
         this.storeImage = storeImage;
         this.storeEvaluate = storeEvaluate;
         this.deliveryTime = deliveryTime;
+    }
+
+    public int getStoreID() {
+        return storeID;
+    }
+
+    public void setStoreID(int storeID) {
+        this.storeID = storeID;
     }
 
     public String getStoreName() {
