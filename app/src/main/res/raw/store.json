@@ -9,6 +9,14 @@
   },
   {
     "id": 2,
+    "storeName": "coco",
+    "storePrice": "起送100|配送50",
+    "storeImage": "must_buy_two",
+    "storeEvaluate": "好吃",
+    "deliveryTime": "平日送"
+  },
+  {
+    "id": 3,
     "storeName": "烤鸭脖",
     "storePrice": "起送30|配送90",
     "storeImage": "recom_three",
