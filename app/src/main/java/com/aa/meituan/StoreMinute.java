@@ -1,18 +1,18 @@
 package com.aa.meituan;
 
 public class StoreMinute {
-    private int storeID;
-    private String storeName;
-    private String storePrice;
-    private String storeImage;
-    private String storeEvaluate;
-    private String deliveryTime;
+    private int storeID;                    //商店id
+    private String storeName;               //商店名称
+    private String soldMonthly;             //月售
+    private String storeImage;              //图片
+    private String storeEvaluate;           //商店评价
+    private String deliveryTime;            //派送时间
     private transient int storeImageId;
 
-    public StoreMinute(int storeID,String StoreName, String StorePrice, String storeImage, String storeEvaluate, String deliveryTime) {
+    public StoreMinute(int storeID, String StoreName, String soldMonthly, String storeImage, String storeEvaluate, String deliveryTime) {
         this.storeID = storeID;
         this.storeName = StoreName;
-        this.storePrice = StorePrice;
+        this.soldMonthly = soldMonthly;
         this.storeImage = storeImage;
         this.storeEvaluate = storeEvaluate;
         this.deliveryTime = deliveryTime;
@@ -31,7 +31,7 @@ public class StoreMinute {
     }
 
     public String getSubtitle() {
-        return storePrice;
+        return soldMonthly;
     }
 
     public String getStoreImage() {
