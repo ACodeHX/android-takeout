@@ -7,7 +7,7 @@
 
 
     <Button
-        android:id="@+id/checkout_button"
+        android:id="@+id/Check"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="结账" />

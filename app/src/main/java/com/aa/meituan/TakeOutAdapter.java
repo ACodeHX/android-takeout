@@ -49,6 +49,7 @@ public class TakeOutAdapter extends RecyclerView.Adapter<TakeOutAdapter.MealView
             double priceToAdd = takeOutValue.getPrice();
             //((TakeOut) context).totalPrice += priceToAdd;
             notifyItemChanged(position);
+            ((TakeOut) context).updateTotalPrice(takeOutValue.getPrice());
             // 如果需要更新总价，可以调用 updateTotalPrice()
         });
     }

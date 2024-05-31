@@ -91,4 +91,8 @@ public class TakeOut extends AppCompatActivity {
     private int getImageResourceId(String imageName) {
         return getResources().getIdentifier(imageName, "drawable", getPackageName());
     }
+    public void updateTotalPrice(double price) {
+        totalPrice += price;
+        judgePay.setText("支付 (" + String.format("%.2f", totalPrice) + "元)"); // 更新支付按钮上的文本显示
+    }
 }
