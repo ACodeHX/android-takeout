@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,6 +30,7 @@ public class TakeOut extends AppCompatActivity {
     private Button judgePay;
     private double totalPrice = 0.0; // 跟踪总价
     private List<TakeOutValue> takeOutValueList;
+    private List<TakeOutValue> filteredList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +40,15 @@ public class TakeOut extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         takeOutValueList = new ArrayList<>();
+        filteredList = new ArrayList<>();
+        Intent intent = getIntent();
+        int storeId = intent.getIntExtra("STORE_ID", -1);
 
-        TakeOutAdapter adapter = new TakeOutAdapter(takeOutValueList, this);
+        TakeOutAdapter adapter = new TakeOutAdapter(takeOutValueList, this);//未修改
         recyclerView.setAdapter(adapter);
 
         // 加载 JSON 数据
-        loadMealsFromJson();
+        loadMealsFromJson(storeId);
 
         // 更新适配器数据
         adapter.notifyDataSetChanged();
@@ -63,7 +68,7 @@ public class TakeOut extends AppCompatActivity {
         });
     }
 
-    private void loadMealsFromJson() {
+    private void loadMealsFromJson(int storeId) {
         try {
             InputStream is = getResources().openRawResource(R.raw.takeout);
             BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
@@ -82,6 +87,12 @@ public class TakeOut extends AppCompatActivity {
 
             if (meals != null) {
                 takeOutValueList.addAll(meals);
+                //过滤列表
+                for (TakeOutValue value : takeOutValueList) {
+                    if (value.getID() == storeId) {
+                        filteredList.add(value);
+                    }
+                }
             }
         } catch (IOException ex) {
             ex.printStackTrace();

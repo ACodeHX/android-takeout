@@ -48,7 +48,9 @@ public class Store extends AppCompatActivity {
         skipTakeout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int storeId = 1;    //传递id
                 Intent intent = new Intent(Store.this, TakeOut.class);
+                intent.putExtra("STORE_ID", storeId);
                 startActivity(intent);
             }
         });
