@@ -2,13 +2,11 @@ package com.aa.meituan;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,15 +33,21 @@ public class TakeOut extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.take_out2);
+        setContentView(R.layout.takeout2);
 
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         takeOutValueList = new ArrayList<>();
         filteredList = new ArrayList<>();
+
         Intent intent = getIntent();
         int storeId = intent.getIntExtra("STORE_ID", -1);
 
+        for (TakeOutValue value : takeOutValueList) {
+            if (value.getFoodID() == storeId) {
+                filteredList.add(value);
+            }
+        }
         TakeOutAdapter adapter = new TakeOutAdapter(takeOutValueList, this);//未修改
         recyclerView.setAdapter(adapter);
 
@@ -89,7 +93,7 @@ public class TakeOut extends AppCompatActivity {
                 takeOutValueList.addAll(meals);
                 //过滤列表
                 for (TakeOutValue value : takeOutValueList) {
-                    if (value.getID() == storeId) {
+                    if (value.getFoodID() == storeId) {
                         filteredList.add(value);
                     }
                 }

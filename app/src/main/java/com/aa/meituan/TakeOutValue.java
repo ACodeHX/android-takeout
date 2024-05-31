@@ -1,7 +1,7 @@
 package com.aa.meituan;
 
 public class TakeOutValue {
-    private int ID;
+    private int FoodID;
     private String name;
     private double price;
     private int quantity;
@@ -9,20 +9,20 @@ public class TakeOutValue {
     private String image;
     private int imageID;
 
-    public TakeOutValue(int ID,String name, double price, int quantity, String image) {
-        this.ID = ID;
+    public TakeOutValue(int FoodID, String name, double price, int quantity, String image) {
+        this.FoodID = FoodID;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
         this.image = image;
     }
 
-    public int getID() {
-        return ID;
+    public int getFoodID() {
+        return FoodID;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setFoodID(int foodID) {
+        this.FoodID = foodID;
     }
 
     public String getName() {

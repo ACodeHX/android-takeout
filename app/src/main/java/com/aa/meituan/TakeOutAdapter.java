@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class TakeOutAdapter extends RecyclerView.Adapter<TakeOutAdapter.MealViewHolder> {
@@ -27,7 +27,7 @@ public class TakeOutAdapter extends RecyclerView.Adapter<TakeOutAdapter.MealView
     @Override
     //这个变量名重构一下
     public MealViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.take_out_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.takeoutitem, parent, false);
         return new MealViewHolder(view);
     }
 

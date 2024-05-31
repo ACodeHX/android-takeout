@@ -38,11 +38,20 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
         StoreMinute item = itemList.get(position);
         holder.store_name.setText(item.getStoreName());
         holder.store_price.setText(item.getSubtitle());
-        //older.image.setImageResource(item.getStoreImage());
         holder.image.setImageResource(context.getResources().getIdentifier(item.getStoreImage(), "drawable", context.getPackageName()));
         holder.evaluate.setText(item.getStoreEvaluate());
         holder.deliveryTime.setText(item.getDeliveryTime());
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int storeID = item.getStoreID();
+
+                Intent intent = new Intent(context, TakeOut.class);
+                intent.putExtra("STORE_ID", storeID);
+                context.startActivity(intent);
+            }
+        });
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

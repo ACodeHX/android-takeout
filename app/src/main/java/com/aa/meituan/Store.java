@@ -43,7 +43,7 @@ public class Store extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_view1);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         itemList = new ArrayList<>();
-
+        //进入TakeOut的按钮
         skipTakeout = findViewById(R.id.judgetake1);
         skipTakeout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,18 +62,16 @@ public class Store extends AppCompatActivity {
             Type listType = new TypeToken<ArrayList<StoreMinute>>() {}.getType();
             itemList = gson.fromJson(jsonString, listType);
 
-            if (itemList == null) {
-                itemList = new ArrayList<>();
-                Log.e("Store", "JSON parsing failed, initializing empty list");
-            } else {
+            if (itemList != null) {
                 // 更新 itemList 中的 storeImage 字段为资源 ID
                 for (StoreMinute item : itemList) {
                     item.setStoreImageId(getImageResourceId(item.getStoreImage()));
                 }
+            } else {
+                Log.e("Store", "JSON parsing failed");
             }
         } else {
-            Log.e("Store", "Failed to load JSON string, initializing empty list");
-            itemList = new ArrayList<>();
+            Log.e("Store", "Failed to load JSON string");
         }
 
         storeAdapter = new StoreAdapter(this, itemList);
