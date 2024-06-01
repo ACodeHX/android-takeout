@@ -55,7 +55,10 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                int storeID = item.getStoreID();
+                Intent intent = new Intent(context, TakeOut.class);
+                intent.putExtra("STORE_ID", storeID);
+                context.startActivity(intent);
             }
         });
     }

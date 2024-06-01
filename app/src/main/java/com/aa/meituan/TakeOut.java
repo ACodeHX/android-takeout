@@ -53,7 +53,11 @@ public class TakeOut extends AppCompatActivity {
 
         // 加载 JSON 数据
         loadMealsFromJson(storeId);
-
+        for (TakeOutValue value : takeOutValueList) {
+            if (value.getFoodID() == storeId) {
+                filteredList.add(value);
+            }
+        }
         // 更新适配器数据
         adapter.notifyDataSetChanged();
 
