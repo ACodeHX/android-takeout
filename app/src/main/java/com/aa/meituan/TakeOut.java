@@ -42,7 +42,7 @@ public class TakeOut extends AppCompatActivity {
         filteredList = new ArrayList<>();
 
         Intent intent = getIntent();
-        int storeId = intent.getIntExtra("STORE_ID", -1);
+        String storeId = intent.getStringExtra("STORE_ID");
         Log.d("DEBUG", "Received storeID: " + storeId);
 
         for (TakeOutValue value : takeOutValueList) {
@@ -78,34 +78,36 @@ public class TakeOut extends AppCompatActivity {
         });
     }
 
-    private void loadMealsFromJson(int storeId) {
-        try {
-            InputStream is = getResources().openRawResource(R.raw.takeout);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-            StringBuilder sb = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                sb.append(line);
-            }
-            reader.close();
-            is.close();
-            String json = sb.toString();
+    private void loadMealsFromJson(String storeId) {
+        if (storeId != null) { // 添加空引用检查
+            try {
+                InputStream is = getResources().openRawResource(R.raw.takeout);
+                BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+                StringBuilder sb = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    sb.append(line);
+                }
+                reader.close();
+                is.close();
+                String json = sb.toString();
 
-            Gson gson = new Gson();
-            Type mealListType = new TypeToken<List<TakeOutValue>>() {}.getType();
-            List<TakeOutValue> meals = gson.fromJson(json, mealListType);
+                Gson gson = new Gson();
+                Type mealListType = new TypeToken<List<TakeOutValue>>() {}.getType();
+                List<TakeOutValue> meals = gson.fromJson(json, mealListType);
 
-            if (meals != null) {
-                takeOutValueList.addAll(meals);
-                //过滤列表
-                for (TakeOutValue value : takeOutValueList) {
-                    if (value.getFoodID() == storeId) {
-                        filteredList.add(value);
+                if (meals != null) {
+                    takeOutValueList.addAll(meals);
+                    //过滤列表
+                    for (TakeOutValue value : takeOutValueList) {
+                        if (storeId.equals(value.getFoodID())) { // 修正此处比较的顺序
+                            filteredList.add(value);
+                        }
                     }
                 }
+            } catch (IOException ex) {
+                ex.printStackTrace();
             }
-        } catch (IOException ex) {
-            ex.printStackTrace();
         }
     }
 

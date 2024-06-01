@@ -37,6 +37,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         StoreMinute item = itemList.get(position);
+        holder.storeID.setText(item.getStoreID());
         holder.store_name.setText(item.getStoreName());
         holder.store_price.setText(item.getSubtitle());
         holder.image.setImageResource(context.getResources().getIdentifier(item.getStoreImage(), "drawable", context.getPackageName()));
@@ -46,7 +47,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int storeID = item.getStoreID();
+                String storeID = item.getStoreID();
                 Intent intent = new Intent(context, TakeOut.class);
                 intent.putExtra("STORE_ID", storeID);
                 Log.d("DEBUG", "Received storeID: " + storeID);
@@ -61,6 +62,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
+        private TextView storeID;
         public ImageView image;
         public TextView store_name;
         public TextView store_price;
@@ -70,6 +72,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
 
         public MyViewHolder(View itemView) {
             super(itemView);
+            storeID = itemView.findViewById(R.id.storeID);
             image = itemView.findViewById(R.id.store_img);
             store_name = itemView.findViewById(R.id.store_name);
             store_price = itemView.findViewById(R.id.store_price);
