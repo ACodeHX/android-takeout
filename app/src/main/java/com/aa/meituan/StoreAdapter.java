@@ -2,6 +2,7 @@ package com.aa.meituan;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,20 +45,11 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                int storeID = item.getStoreID();
-
-                Intent intent = new Intent(context, TakeOut.class);
-                intent.putExtra("STORE_ID", storeID);
-                context.startActivity(intent);
-            }
-        });
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View v) {
                 int storeID = item.getStoreID();
                 Intent intent = new Intent(context, TakeOut.class);
                 intent.putExtra("STORE_ID", storeID);
+                Log.d("DEBUG", "Received storeID: " + storeID);
                 context.startActivity(intent);
             }
         });

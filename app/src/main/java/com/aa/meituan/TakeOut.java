@@ -2,6 +2,7 @@ package com.aa.meituan;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -42,6 +43,7 @@ public class TakeOut extends AppCompatActivity {
 
         Intent intent = getIntent();
         int storeId = intent.getIntExtra("STORE_ID", -1);
+        Log.d("DEBUG", "Received storeID: " + storeId);
 
         for (TakeOutValue value : takeOutValueList) {
             if (value.getFoodID() == storeId) {

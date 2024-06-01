@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +21,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Store extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -29,11 +33,13 @@ public class Store extends AppCompatActivity {
     private TextView showStore;
     private ImageView showImage;
     private Button skipTakeout;
+    private FrameLayout frameLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.store);
+        //frameLayout = findViewById(R.id.storeframe);
 
         showStore = findViewById(R.id.textView2);
         showStore.setText("店铺");
@@ -43,9 +49,18 @@ public class Store extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_view1);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         itemList = new ArrayList<>();
-        //进入TakeOut的按钮
+
+        //我是想直接跳转到TakeOut的按钮,不在storeitem.xml的RecyclerView中,不需要修改
         skipTakeout = findViewById(R.id.judgetake1);
         skipTakeout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Store.this, TakeOut.class);
+                startActivity(intent);
+            }
+        });
+
+        /*frameLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int storeId = 1;    //传递id
@@ -53,7 +68,7 @@ public class Store extends AppCompatActivity {
                 intent.putExtra("STORE_ID", storeId);
                 startActivity(intent);
             }
-        });
+        });*/
 
         // 修正此处调用正确的 JSON 加载方法
         String jsonString = loadJSONFromRaw(R.raw.store);
