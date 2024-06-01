@@ -45,11 +45,6 @@ public class TakeOut extends AppCompatActivity {
         String storeId = intent.getStringExtra("STORE_ID");
         Log.d("DEBUG", "Received storeID: " + storeId);
 
-        for (TakeOutValue value : takeOutValueList) {
-            if (value.getFoodID() == storeId) {
-                filteredList.add(value);
-            }
-        }
         TakeOutAdapter adapter = new TakeOutAdapter(takeOutValueList, this);//未修改
         recyclerView.setAdapter(adapter);
 
@@ -98,6 +93,7 @@ public class TakeOut extends AppCompatActivity {
 
                 if (meals != null) {
                     takeOutValueList.addAll(meals);
+                    filteredList.clear();
                     //过滤列表
                     for (TakeOutValue value : takeOutValueList) {
                         if (storeId.equals(value.getFoodID())) { // 修正此处比较的顺序
@@ -108,6 +104,9 @@ public class TakeOut extends AppCompatActivity {
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
+            TakeOutAdapter adapter = new TakeOutAdapter(filteredList, this);
+            recyclerView.setAdapter(adapter);
+            adapter.notifyDataSetChanged();
         }
     }
 

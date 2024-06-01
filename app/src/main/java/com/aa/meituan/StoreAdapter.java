@@ -44,6 +44,8 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
         holder.evaluate.setText(item.getStoreEvaluate());
         holder.deliveryTime.setText(item.getDeliveryTime());
 
+        holder.storeID.setVisibility(View.GONE);//将storeID隐藏
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
