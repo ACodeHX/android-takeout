@@ -1,5 +1,6 @@
 package com.aa.meituan;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,34 +10,46 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class PayCarAdapter extends RecyclerView.Adapter<PayCarAdapter.CartViewHolder> {
-    private List<TakeOutValue> cartItems;
+    private List<TakeOutValue> carItems;
+    private Context context;
 
-    public PayCarAdapter(List<TakeOutValue> cartItems) {
-        this.cartItems = cartItems != null ? cartItems : new ArrayList<>();
+    public PayCarAdapter(List<TakeOutValue> carItems, Context context) {
+        this.carItems = carItems != null ? carItems : new ArrayList<>();
+        this.context = context;
     }
 
     @NonNull
     @Override
     public CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.paylist, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.payitem, parent, false);
         return new CartViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
-        TakeOutValue item = cartItems.get(position);
+        TakeOutValue item = carItems.get(position);
         holder.foodName.setText(item.getName());
         holder.foodPrice.setText(String.format("$%.2f", item.getPrice()));
         holder.foodCount.setText(String.valueOf(item.getQuantity()));
+
+        String imageName = item.getImage();
+        int imageResId = context.getResources().getIdentifier(imageName, "drawable", context.getPackageName());
+        holder.foodImage.setImageResource(imageResId);
+
+        if (position >= 0 && position < carItems.size()) {
+            TakeOutValue item1 = carItems.get(position);
+        }
     }
 
     @Override
     public int getItemCount() {
-        return cartItems.size();
+        return carItems.size();
     }
 
     static class CartViewHolder extends RecyclerView.ViewHolder {

@@ -82,7 +82,7 @@ public class TakeOut extends AppCompatActivity {
                     //将购物车数据转换为json字符串
                     Gson gson = new Gson();
                     String carJson = gson.toJson(takeOutValueList);
-                    intent.putExtra("catItems", carJson);
+                    intent.putExtra("carItems", carJson);
                     Log.d("DEBUG", "carJson: " + carJson);
                     startActivity(intent);
                 } else {

@@ -68,7 +68,7 @@ public class Pay extends AppCompatActivity {
         // 设置 RecyclerView 显示购物车商品
         recyclerView = findViewById(R.id.pay_recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        carAdapter = new PayCarAdapter(carItems);
+        carAdapter = new PayCarAdapter(carItems, this);
         recyclerView.setAdapter(carAdapter);
 
         // 设置支付按钮
