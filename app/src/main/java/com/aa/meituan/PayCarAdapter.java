@@ -38,6 +38,7 @@ public class PayCarAdapter extends RecyclerView.Adapter<PayCarAdapter.CartViewHo
         holder.foodPrice.setText(String.format("$%.2f", item.getPrice()));
         holder.foodCount.setText(String.valueOf(item.getQuantity()));
 
+        //获取图片信息并转为int数据类型
         String imageName = item.getImage();
         int imageResId = context.getResources().getIdentifier(imageName, "drawable", context.getPackageName());
         holder.foodImage.setImageResource(imageResId);

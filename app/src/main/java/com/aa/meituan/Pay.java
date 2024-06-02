@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -47,7 +49,6 @@ public class Pay extends AppCompatActivity {
         // 获取传递的购物车数据
         Intent intent = getIntent();
         String carJson = intent.getStringExtra("carItems");
-        Log.d("DEBUG", "Received carJson: " + carJson);
 
         if (carJson != null && !carJson.isEmpty()) {
             Gson gson = new Gson();
@@ -82,11 +83,11 @@ public class Pay extends AppCompatActivity {
     }
 
     private void showDialog() {
+        //创建一个对话框
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("支付确认")
                 .setMessage("你确定要进行支付吗？")
                 .setPositiveButton("确认", (dialog, which) -> {
-                    //我想在这里添加图片
                     showImage();
                     Toast.makeText(Pay.this, "支付成功", Toast.LENGTH_SHORT).show();
                     // 添加支付逻辑
@@ -102,6 +103,7 @@ public class Pay extends AppCompatActivity {
         dialog.show();
     }
 
+    //显示二维码图片
     private void showImage() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         ImageView imageView = new ImageView(this);

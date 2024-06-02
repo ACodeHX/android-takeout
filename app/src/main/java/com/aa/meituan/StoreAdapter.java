@@ -21,16 +21,16 @@ import java.util.List;
 public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder> {
     private List<StoreMinute> itemList;
     private Context context;
-    //接受List<StoreMinute>,初始化itemList
+
     public StoreAdapter(Context context, List<StoreMinute> itemList) {
-        this.context = context;
-        this.itemList = itemList;
+        this.context = context;     //访问应用程序的环境
+        this.itemList = itemList;   //显示RecyclerView的数据列表
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.storeitem, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.storeitem, parent, false);    //加载布局文件
         return new MyViewHolder(view);
     }
     //绑定数据到视图
@@ -40,19 +40,21 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
         holder.storeID.setText(item.getStoreID());
         holder.store_name.setText(item.getStoreName());
         holder.store_price.setText(item.getSubtitle());
+        //获取图像
         holder.image.setImageResource(context.getResources().getIdentifier(item.getStoreImage(), "drawable", context.getPackageName()));
         holder.evaluate.setText(item.getStoreEvaluate());
         holder.deliveryTime.setText(item.getDeliveryTime());
 
-        holder.storeID.setVisibility(View.GONE);//将storeID隐藏
+        //将storeID隐藏
+        holder.storeID.setVisibility(View.GONE);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //将storeID传值到TakeOut
                 String storeID = item.getStoreID();
                 Intent intent = new Intent(context, TakeOut.class);
                 intent.putExtra("STORE_ID", storeID);
-                Log.d("DEBUG", "Received storeID: " + storeID);
                 context.startActivity(intent);
             }
         });

@@ -5,9 +5,7 @@ public class TakeOutValue {
     private String name;
     private double price;
     private int quantity;
-    private String imageUrl; // 添加图像 URL 字段
     private String image;
-    private int imageID;
 
     public TakeOutValue(String FoodID, String name, double price, int quantity, String image) {
         this.FoodID = FoodID;
@@ -39,14 +37,6 @@ public class TakeOutValue {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
     }
 
     public String getImage() {

@@ -14,7 +14,6 @@ import java.util.List;
 
 public class TakeOutAdapter extends RecyclerView.Adapter<TakeOutAdapter.MealViewHolder> {
     private List<TakeOutValue> takeOutValues;
-    Button addToCartButton;
     private Context context;
 
 
@@ -55,11 +54,13 @@ public class TakeOutAdapter extends RecyclerView.Adapter<TakeOutAdapter.MealView
         });
     }
 
+    //购买商品的数量
     @Override
     public int getItemCount() {
         return takeOutValues.size();
     }
 
+    //根据图片名称获取id
     private int getImageResourceId(String imageName) {
         return context.getResources().getIdentifier(imageName, "drawable", context.getPackageName());
     }
@@ -69,6 +70,7 @@ public class TakeOutAdapter extends RecyclerView.Adapter<TakeOutAdapter.MealView
         ImageView imageView;
         Button addButton;
 
+        //绑定数据
         MealViewHolder(View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.meal_name);

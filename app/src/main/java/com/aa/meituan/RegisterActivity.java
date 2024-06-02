@@ -32,7 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
         retLogin = findViewById(R.id.returnLogin);
         userDate = new DatabaseHelper(this);
 
-        //注册新用户的按钮
+        //注册用户的按钮
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,7 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 //判断账号和密码是否为空
                 if (userName.isEmpty() || passVaule.isEmpty()) {
-                    Toast.makeText(RegisterActivity.this, "请输入账号和密码", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "请输入账号或密码", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -67,13 +67,13 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         }
-        //保存密码和账号到指定文件
+    //保存密码和账号到指定文件
     private void saveToFile(String userName, String password) {
         String data = "账号:" + userName + ",密码" + password +  "\n";
         FileOutputStream fos = null;
         try {
             fos = openFileOutput("data_135.txt", Context.MODE_APPEND);
-            fos.write(data.getBytes());
+            fos.write(data.getBytes());     //将数据写入文件
         } catch (IOException e) {
             e.printStackTrace();
         } finally {

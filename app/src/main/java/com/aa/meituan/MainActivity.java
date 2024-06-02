@@ -28,9 +28,8 @@ public class MainActivity extends AppCompatActivity {
         loginBUT = findViewById(R.id.login_but);    //登陆按钮
         regBUT = findViewById(R.id.register);       //注册按钮
         userData = new DatabaseHelper(this);
-        RecyclerView recyclerView;
-        Store storeAdapter;
-        // 前往注册的按钮
+
+        //注册按钮
         regBUT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -34,7 +34,6 @@ public class Store extends AppCompatActivity {
     private ImageView showImage;
     private ImageView backLogin;
     private Button skipTakeout;
-    private FrameLayout frameLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +63,7 @@ public class Store extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         itemList = new ArrayList<>();
 
-        //我是想直接跳转到TakeOut的按钮,不在storeitem.xml的RecyclerView中,不需要修改
+        //直接跳转到TakeOut的按钮
         skipTakeout = findViewById(R.id.judgetake1);
         skipTakeout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +73,7 @@ public class Store extends AppCompatActivity {
             }
         });
 
-        // 修正此处调用正确的 JSON 加载方法
+        //调用loadJSONFromRaw读取store.json的数据，使用Gson解析为itemList
         String jsonString = loadJSONFromRaw(R.raw.store);
         if (jsonString != null) {
             Gson gson = new Gson();
@@ -97,12 +96,12 @@ public class Store extends AppCompatActivity {
         recyclerView.setAdapter(storeAdapter);
     }
 
-    // 从 raw 资源加载 JSON
+    // 加载json数据
     private String loadJSONFromRaw(int rawResourceId) {
         String json = null;
         try {
             InputStream is = getResources().openRawResource(rawResourceId);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));     //使用UFT-8
             StringBuilder sb = new StringBuilder();
             String line;
             while ((line = reader.readLine()) != null) {
@@ -110,7 +109,7 @@ public class Store extends AppCompatActivity {
             }
             reader.close();
             is.close();
-            json = sb.toString();
+            json = sb.toString();       //返回字符串
         } catch (IOException ex) {
             Log.e("Store", "Error reading JSON file from raw resource", ex);
             return null;

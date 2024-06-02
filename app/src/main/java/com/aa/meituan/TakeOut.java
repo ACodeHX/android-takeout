@@ -26,11 +26,9 @@ import java.util.List;
 
 public class TakeOut extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private TextView totalPriceTextView;
     private ImageView backStore;
     private Button judgePay;
-    private Button selectStore;
-    private double totalPrice = 0.0; // 跟踪总价
+    private double totalPrice = 0.0; // 设置总价
     private List<TakeOutValue> takeOutValueList;
     private List<TakeOutValue> filteredList;
 
@@ -51,20 +49,21 @@ public class TakeOut extends AppCompatActivity {
                 finish();
             }
         });
-        takeOutValueList = new ArrayList<>();
-        filteredList = new ArrayList<>();
+
+
+        takeOutValueList = new ArrayList<>();       //存储所有的外卖菜品数据
+        filteredList = new ArrayList<>();           //用来存储经过筛选的外卖菜品数据
 
         Intent intent = getIntent();
-        String storeId = intent.getStringExtra("STORE_ID");
-        Log.d("DEBUG", "Received storeID: " + storeId);
+        String storeId = intent.getStringExtra("STORE_ID");     //获得Store传过来的storeID值
 
-        TakeOutAdapter adapter = new TakeOutAdapter(takeOutValueList, this);//未修改
+        TakeOutAdapter adapter = new TakeOutAdapter(takeOutValueList, this);
         recyclerView.setAdapter(adapter);
 
-        // 加载 JSON 数据
+        // 加载 JSON 的storeId的数据
         loadMealsFromJson(storeId);
         for (TakeOutValue value : takeOutValueList) {
-            if (value.getFoodID() == storeId) {
+            if (value.getFoodID() == storeId) {     //比较两个id的值
                 filteredList.add(value);
             }
         }
@@ -89,9 +88,8 @@ public class TakeOut extends AppCompatActivity {
 
                     // 将购物车数据转换为json字符串
                     Gson gson = new Gson();
-                    String carJson = gson.toJson(filteredPayItem); // 使用filteredPayItem而不是takeOutValueList
-                    intent.putExtra("carItems", carJson);
-                    Log.d("DEBUG", "carJson: " + carJson);
+                    String carJson = gson.toJson(filteredPayItem);
+                    intent.putExtra("carItems", carJson);   //将carItems传到Pay
                     startActivity(intent);
                 } else {
                     Toast.makeText(TakeOut.this, "购物车为空,请先选择菜品", Toast.LENGTH_SHORT).show();
@@ -137,9 +135,11 @@ public class TakeOut extends AppCompatActivity {
         }
     }
 
+    //根据图片名称获取图片ID
     private int getImageResourceId(String imageName) {
         return getResources().getIdentifier(imageName, "drawable", getPackageName());
     }
+    //更新总价
     public void updateTotalPrice(double price) {
         totalPrice += price;
 
