@@ -29,15 +29,14 @@
 
             <TextView
                 android:id="@+id/Store3"
-                android:layout_width="0dp"
-                android:layout_height="64dp"
+                android:layout_width="408dp"
+                android:layout_height="61dp"
                 android:gravity="center"
                 android:text="店铺详细"
                 android:textSize="30dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/backstore"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.043" />
 
@@ -65,6 +64,15 @@
                 app:layout_constraintEnd_toStartOf="@+id/store_img"
                 app:layout_constraintStart_toStartOf="parent" />
 
+            <ImageView
+                android:id="@+id/backstore"
+                android:layout_width="68dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@drawable/back_takeout" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 
@@ -83,40 +91,44 @@
         android:id="@+id/recycler_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="4dp"
+        app:layout_constraintBottom_toTopOf="@id/footer_frame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/menu1"
-        app:layout_constraintBottom_toTopOf="@id/footer_frame" />
+        app:layout_constraintTop_toBottomOf="@id/menu1" />
 
     <FrameLayout
         android:id="@+id/footer_frame"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
-            android:id="@+id/footer_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:text="未选商品"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/payFood" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/payFood"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="$20起送"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/payFood"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="$20起送"
+                android:background="@color/red"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/select_store"
+                android:layout_width="325dp"
+                android:layout_height="50dp"
+                android:text="未选商品"
+                android:background="@color/red"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </FrameLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

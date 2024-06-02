@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +27,9 @@ import java.util.List;
 public class TakeOut extends AppCompatActivity {
     private RecyclerView recyclerView;
     private TextView totalPriceTextView;
+    private ImageView backStore;
     private Button judgePay;
+    private Button selectStore;
     private double totalPrice = 0.0; // 跟踪总价
     private List<TakeOutValue> takeOutValueList;
     private List<TakeOutValue> filteredList;
@@ -38,6 +41,16 @@ public class TakeOut extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        //返回按钮
+        backStore = findViewById(R.id.backstore);
+        backStore.setImageResource(R.drawable.back_takeout);
+        backStore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         takeOutValueList = new ArrayList<>();
         filteredList = new ArrayList<>();
 
@@ -115,6 +128,9 @@ public class TakeOut extends AppCompatActivity {
     }
     public void updateTotalPrice(double price) {
         totalPrice += price;
-        judgePay.setText("支付 (" + String.format("%.2f", totalPrice) + "元)"); // 更新支付按钮上的文本显示
+
+        Button selectStore = findViewById(R.id.select_store);
+        judgePay.setText("去结算");
+        selectStore.setText("支付 (" + String.format("%.2f", totalPrice) + "元)"); // 更新支付按钮上的文本显示
     }
 }

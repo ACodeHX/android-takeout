@@ -61,8 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
         retLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent retIntent = new Intent(RegisterActivity.this, MainActivity.class);
-                startActivity(retIntent);
+                finish();
             }
         });
 

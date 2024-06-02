@@ -32,6 +32,7 @@ public class Store extends AppCompatActivity {
     private List<StoreMinute> itemList;
     private TextView showStore;
     private ImageView showImage;
+    private ImageView backLogin;
     private Button skipTakeout;
     private FrameLayout frameLayout;
 
@@ -39,12 +40,25 @@ public class Store extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.store);
-        //frameLayout = findViewById(R.id.storeframe);
 
         showStore = findViewById(R.id.textView2);
         showStore.setText("店铺");
         showImage = findViewById(R.id.imageView2);
         showImage.setImageResource(R.drawable.microsoft);
+        showImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        backLogin = findViewById(R.id.backlogin);
+        backLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         recyclerView = findViewById(R.id.recycler_view1);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
