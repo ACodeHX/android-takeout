@@ -3,17 +3,17 @@ package com.aa.meituan;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PayCat {
+public class PayCar {
     private List<TakeOutValue> items;
-    private static PayCat instance;
+    private static PayCar instance;
 
-    private PayCat() {
+    private PayCar() {
         items = new ArrayList<>();
     }
 
-    public static synchronized PayCat getInstance() {
+    public static synchronized PayCar getInstance() {
         if (instance == null) {
-            instance = new PayCat();
+            instance = new PayCar();
         }
         return instance;
     }

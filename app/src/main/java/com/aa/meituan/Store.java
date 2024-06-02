@@ -74,16 +74,6 @@ public class Store extends AppCompatActivity {
             }
         });
 
-        /*frameLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int storeId = 1;    //传递id
-                Intent intent = new Intent(Store.this, TakeOut.class);
-                intent.putExtra("STORE_ID", storeId);
-                startActivity(intent);
-            }
-        });*/
-
         // 修正此处调用正确的 JSON 加载方法
         String jsonString = loadJSONFromRaw(R.raw.store);
         if (jsonString != null) {

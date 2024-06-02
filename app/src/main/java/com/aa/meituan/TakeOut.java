@@ -78,6 +78,12 @@ public class TakeOut extends AppCompatActivity {
                 if (totalPrice > 0) {
                     Intent intent = new Intent(TakeOut.this, Pay.class);
                     intent.putExtra("totalPrice", totalPrice);
+
+                    //将购物车数据转换为json字符串
+                    Gson gson = new Gson();
+                    String carJson = gson.toJson(takeOutValueList);
+                    intent.putExtra("catItems", carJson);
+                    Log.d("DEBUG", "carJson: " + carJson);
                     startActivity(intent);
                 } else {
                     Toast.makeText(TakeOut.this, "购物车为空,请先选择菜品", Toast.LENGTH_SHORT).show();
