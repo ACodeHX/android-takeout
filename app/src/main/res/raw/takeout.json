@@ -3,13 +3,13 @@
     "FoodID": 1,
     "name": "珍珠奶茶",
     "image": "twitter",
-    "price": 12.99
+    "price": 20
   },
   {
     "FoodID": 1,
     "name": "烧仙草",
     "image": "twitter",
-    "price": 12.99
+    "price": 30
   },
   {
     "FoodID": 2,

@@ -75,13 +75,21 @@ public class TakeOut extends AppCompatActivity {
         judgePay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (totalPrice > 0) {
+                List<TakeOutValue> filteredPayItem = new ArrayList<>();
+                for (TakeOutValue item : takeOutValueList) {
+                    // 只有当数量大于0时才添加到filteredPayItem列表
+                    if (item.getQuantity() > 0) {
+                        filteredPayItem.add(item);
+                    }
+                }
+
+                if (!filteredPayItem.isEmpty()) { // 检查filteredPayItem是否为空
                     Intent intent = new Intent(TakeOut.this, Pay.class);
                     intent.putExtra("totalPrice", totalPrice);
 
-                    //将购物车数据转换为json字符串
+                    // 将购物车数据转换为json字符串
                     Gson gson = new Gson();
-                    String carJson = gson.toJson(takeOutValueList);
+                    String carJson = gson.toJson(filteredPayItem); // 使用filteredPayItem而不是takeOutValueList
                     intent.putExtra("carItems", carJson);
                     Log.d("DEBUG", "carJson: " + carJson);
                     startActivity(intent);
