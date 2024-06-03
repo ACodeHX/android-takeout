@@ -44,6 +44,7 @@ public class Store extends AppCompatActivity {
 
         showStore = findViewById(R.id.textView2);
         showStore.setText("店铺");
+        //广告图片
         showImage = findViewById(R.id.imageView2);
         showImage.setImageResource(R.drawable.ad);
         showImage.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +54,7 @@ public class Store extends AppCompatActivity {
             }
         });
 
+        //返回登陆
         backLogin = findViewById(R.id.backlogin);
         backLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +63,7 @@ public class Store extends AppCompatActivity {
             }
         });
 
+        //设置条目列表布局
         recyclerView = findViewById(R.id.recycler_view1);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         itemList = new ArrayList<>();

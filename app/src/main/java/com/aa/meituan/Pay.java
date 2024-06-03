@@ -16,6 +16,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import org.w3c.dom.Text;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +52,11 @@ public class Pay extends AppCompatActivity {
         // 获取传递的购物车数据
         Intent intent = getIntent();
         String carJson = intent.getStringExtra("carItems");
+        //获取配送费的数据
+        Intent intentFee = getIntent();
+        int deliveryFee = intentFee.getIntExtra("DELIVERY", 0);
+        TextView deliveryfeeText = findViewById(R.id.deliveryfee);
+        deliveryfeeText.setText("配送费: " + deliveryFee + "元");
 
         if (carJson != null && !carJson.isEmpty()) {
             Gson gson = new Gson();

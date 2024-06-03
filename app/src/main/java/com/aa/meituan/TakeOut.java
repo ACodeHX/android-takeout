@@ -53,9 +53,10 @@ public class TakeOut extends AppCompatActivity {
 
         takeOutValueList = new ArrayList<>();       //存储所有的外卖菜品数据
         filteredList = new ArrayList<>();           //用来存储经过筛选的外卖菜品数据
-
+        //获得Store传过来的storeID值
         Intent intent = getIntent();
-        String storeId = intent.getStringExtra("STORE_ID");     //获得Store传过来的storeID值
+        String storeId = intent.getStringExtra("STORE_ID");
+
 
         TakeOutAdapter adapter = new TakeOutAdapter(takeOutValueList, this);
         recyclerView.setAdapter(adapter);
@@ -85,6 +86,8 @@ public class TakeOut extends AppCompatActivity {
                 if (!filteredPayItem.isEmpty()) { // 检查filteredPayItem是否为空
                     Intent intent = new Intent(TakeOut.this, Pay.class);
                     intent.putExtra("totalPrice", totalPrice);
+                    int deliveryFee = getIntent().getIntExtra("DELIVERY", 0);
+                    intent.putExtra("DELIVERY", deliveryFee);
 
                     // 将购物车数据转换为json字符串
                     Gson gson = new Gson();

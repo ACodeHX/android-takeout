@@ -56,9 +56,8 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
                 String storeID = item.getStoreID();
                 int deliveryFee = item.getDeliveryFee();
                 Intent intent = new Intent(context, TakeOut.class);
-                Intent delintent = new Intent(context, Pay.class);
                 intent.putExtra("STORE_ID", storeID);
-                delintent.putExtra("DELIVERY", deliveryFee);
+                intent.putExtra("DELIVERY", deliveryFee);
                 context.startActivity(intent);
             }
         });
