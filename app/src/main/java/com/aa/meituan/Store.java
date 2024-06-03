@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,11 +45,11 @@ public class Store extends AppCompatActivity {
         showStore = findViewById(R.id.textView2);
         showStore.setText("店铺");
         showImage = findViewById(R.id.imageView2);
-        showImage.setImageResource(R.drawable.microsoft);
+        showImage.setImageResource(R.drawable.ad);
         showImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Toast.makeText(Store.this, "这是广告!!!", Toast.LENGTH_SHORT).show();
             }
         });
 

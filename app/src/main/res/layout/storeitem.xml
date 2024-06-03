@@ -73,6 +73,14 @@
                 android:layout_marginEnd="64dp"
                 app:layout_constraintEnd_toStartOf="@+id/deliveryTime"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/deliveryFee"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toEndOf="@+id/store_price"
+                app:layout_constraintTop_toBottomOf="@+id/store_name" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 

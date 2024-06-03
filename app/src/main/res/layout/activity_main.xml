@@ -5,6 +5,7 @@
     android:id="@+id/account"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/FF9C1A"
     tools:context=".MainActivity">
 
 
@@ -38,10 +39,8 @@
         android:id="@+id/login_but"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginStart="50dp"
         android:text="登陆"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
@@ -49,11 +48,14 @@
         android:id="@+id/MT"
         android:layout_width="194dp"
         android:layout_height="64dp"
-        android:layout_marginStart="157dp"
+        android:layout_marginStart="176dp"
         android:layout_marginTop="84dp"
-        android:layout_marginEnd="196dp"
+        android:layout_marginEnd="176dp"
         android:gravity="center"
         android:text="美团"
+        android:textSize="50dp"
+        android:textColor="#808080"
+        android:background="@color/FF9C1A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,13 +65,9 @@
         android:id="@+id/register"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginStart="239dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="72dp"
+        android:layout_marginEnd="50dp"
         android:text="注册"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -77,6 +75,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="559dp" />
+        app:layout_constraintGuide_begin="489dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

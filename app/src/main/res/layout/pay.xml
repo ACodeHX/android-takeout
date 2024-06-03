@@ -24,6 +24,7 @@
         android:layout_width="405dp"
         android:layout_height="76dp"
         android:layout_marginTop="6dp"
+        android:background="@color/FF9C1A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -47,6 +48,7 @@
                 android:layout_marginEnd="152dp"
                 android:gravity="center"
                 android:text="订单"
+                android:textColor="#808080"
                 android:textSize="25dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

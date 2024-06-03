@@ -44,6 +44,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
         holder.image.setImageResource(context.getResources().getIdentifier(item.getStoreImage(), "drawable", context.getPackageName()));
         holder.evaluate.setText(item.getStoreEvaluate());
         holder.deliveryTime.setText(item.getDeliveryTime());
+        holder.deliverFee.setText("配送费:" + String.valueOf(item.getDeliveryFee()) + "元");
 
         //将storeID隐藏
         holder.storeID.setVisibility(View.GONE);
@@ -53,8 +54,11 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
             public void onClick(View v) {
                 //将storeID传值到TakeOut
                 String storeID = item.getStoreID();
+                int deliveryFee = item.getDeliveryFee();
                 Intent intent = new Intent(context, TakeOut.class);
+                Intent delintent = new Intent(context, Pay.class);
                 intent.putExtra("STORE_ID", storeID);
+                delintent.putExtra("DELIVERY", deliveryFee);
                 context.startActivity(intent);
             }
         });
@@ -72,6 +76,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
         public TextView store_price;
         public TextView evaluate;
         public TextView deliveryTime;
+        public TextView deliverFee;
 
 
         public MyViewHolder(View itemView) {
@@ -82,6 +87,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
             store_price = itemView.findViewById(R.id.store_price);
             evaluate = itemView.findViewById(R.id.store_evaluate);
             deliveryTime = itemView.findViewById(R.id.deliveryTime);
+            deliverFee = itemView.findViewById(R.id.deliveryFee);
         }
     }
 }

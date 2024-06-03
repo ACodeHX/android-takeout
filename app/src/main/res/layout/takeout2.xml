@@ -34,6 +34,8 @@
                 android:gravity="center"
                 android:text="店铺详细"
                 android:textSize="30dp"
+                android:textColor="#808080"
+                android:background="@color/FF9C1A"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/backstore"
