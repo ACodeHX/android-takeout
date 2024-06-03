@@ -27,7 +27,6 @@ import java.util.List;
 public class TakeOut extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ImageView backStore;
-    private ImageView showImage;
     private Button judgePay;
     private double totalPrice = 0.0; // 设置总价
     private List<TakeOutValue> takeOutValueList;
@@ -57,6 +56,20 @@ public class TakeOut extends AppCompatActivity {
         //获得Store传过来的storeID值
         Intent intent = getIntent();
         String storeId = intent.getStringExtra("STORE_ID");
+        String storeName = intent.getStringExtra("STORENAME");
+        String storeImage = intent.getStringExtra("STOREIMAGE");
+        String storeEvaluate = intent.getStringExtra("STOREEVALUATE");
+        String deliveryTime = intent.getStringExtra("DELIVERYTIME");
+
+        TextView storeNameText = findViewById(R.id.store_name);
+        ImageView storeImageText = findViewById(R.id.store_img);
+        TextView storeEvaluateText = findViewById(R.id.store_evaluate);
+        TextView deliveryTimeText = findViewById(R.id.deliveryTime);
+        storeNameText.setText(storeName);
+        int imageInt = getImageResourceId(storeImage);//将图片转为int
+        storeImageText.setImageResource(imageInt);
+        storeEvaluateText.setText(storeEvaluate);
+        deliveryTimeText.setText(deliveryTime);
 
         TakeOutAdapter adapter = new TakeOutAdapter(takeOutValueList, this);
         recyclerView.setAdapter(adapter);
@@ -70,15 +83,10 @@ public class TakeOut extends AppCompatActivity {
         }
         // 更新适配器数据
         adapter.notifyDataSetChanged();
-        //
-        /*showImage = findViewById(R.id.meal_image);
-        showImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });*/
+        //是指图片
 
+        //跳转支付界面
         judgePay = findViewById(R.id.payFood);
         judgePay.setOnClickListener(new View.OnClickListener() {
             @Override

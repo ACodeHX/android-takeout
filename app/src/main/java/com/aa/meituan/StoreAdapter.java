@@ -52,12 +52,20 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyViewHolder
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //将storeID传值到TakeOut
+                //将store的一些数据传值到TakeOut
                 String storeID = item.getStoreID();
+                String storeName = item.getStoreName();
+                String storeImage = item.getStoreImage();
+                String storeEvaluate = item.getStoreEvaluate();
+                String deliveryTime = item.getDeliveryTime();
                 int deliveryFee = item.getDeliveryFee();
                 Intent intent = new Intent(context, TakeOut.class);
                 intent.putExtra("STORE_ID", storeID);
                 intent.putExtra("DELIVERY", deliveryFee);
+                intent.putExtra("STORENAME", storeName);
+                intent.putExtra("STOREIMAGE", storeImage);
+                intent.putExtra("STOREEVALUATE", storeEvaluate);
+                intent.putExtra("DELIVERYTIME", deliveryTime);
                 context.startActivity(intent);
             }
         });

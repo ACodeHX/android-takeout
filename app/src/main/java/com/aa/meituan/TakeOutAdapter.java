@@ -53,14 +53,12 @@ public class TakeOutAdapter extends RecyclerView.Adapter<TakeOutAdapter.MealView
             // 例如更新数量，通知适配器数据集变化等
             takeOutValue.setQuantity(takeOutValue.getQuantity() + 1);
             double priceToAdd = takeOutValue.getPrice();
-            //((TakeOut) context).totalPrice += priceToAdd;
             ((TakeOut) context).updateTotalPrice(takeOutValue.getPrice());
-            //updateTotalPrice(totalPrice);
             notifyItemChanged(position);
             // 如果需要更新总价，可以调用 updateTotalPrice()
         });
     }
-
+    //显示图片
     private void showImageDialog(int imageResId) {
         Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.showtakeoutimage);
