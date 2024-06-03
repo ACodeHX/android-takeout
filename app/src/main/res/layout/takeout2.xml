@@ -29,13 +29,13 @@
 
             <TextView
                 android:id="@+id/Store3"
-                android:layout_width="408dp"
-                android:layout_height="61dp"
+                android:layout_width="403dp"
+                android:layout_height="58dp"
+                android:background="@color/FF9C1A"
                 android:gravity="center"
                 android:text="店铺详细"
-                android:textSize="30dp"
                 android:textColor="#808080"
-                android:background="@color/FF9C1A"
+                android:textSize="30dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/backstore"

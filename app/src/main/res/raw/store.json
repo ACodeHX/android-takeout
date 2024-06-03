@@ -6,7 +6,7 @@
     "storeImage": "happylogo",
     "storeEvaluate": "好吃",
     "deliveryTime": "预计时间30:00",
-    "deliveryFee": 9
+    "deliveryFee": 5
   },
   {
     "storeID": 2,
@@ -23,8 +23,8 @@
     "soldMonthly": "月售50",
     "storeImage": "recom_three",
     "storeEvaluate": "好吃",
-    "deliveryTime": "平日送",
-    "deliveryFee": 8
+    "deliveryTime": "预计时间52:00",
+    "deliveryFee": 3
   },
   {
     "storeID": 4,
@@ -33,7 +33,7 @@
     "storeImage": "mxbc",
     "storeEvaluate": "蜜雪冰城甜蜜蜜",
     "deliveryTime": "预计时间16:00",
-    "deliveryFee": 8
+    "deliveryFee": 7
   },
   {
     "storeID": 5,
@@ -42,7 +42,7 @@
     "storeImage": "nxdc",
     "storeEvaluate": "奈雪の茶毫克",
     "deliveryTime": "预计时间22:00",
-    "deliveryFee": 8
+    "deliveryFee": 9
   },
   {
     "storeID": 6,
@@ -51,7 +51,7 @@
     "storeImage": "redlogo",
     "storeEvaluate": "吃饭就来这",
     "deliveryTime": "预计时间25:00",
-    "deliveryFee": 8
+    "deliveryFee": 10
   },
   {
     "storeID": 7,
@@ -60,6 +60,6 @@
     "storeImage": "barbecue1",
     "storeEvaluate": "芭比Q",
     "deliveryTime": "预计时间28:00",
-    "deliveryFee": 8
+    "deliveryFee": 10
   }
 ]

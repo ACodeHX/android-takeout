@@ -58,6 +58,16 @@ public class Pay extends AppCompatActivity {
         TextView deliveryfeeText = findViewById(R.id.deliveryfee);
         deliveryfeeText.setText("配送费: " + deliveryFee + "元");
 
+        //显示小结
+        double subtotal = intent.getDoubleExtra("totalPrice", 0.0);
+        TextView subtotalText = findViewById(R.id.subtotal);
+        subtotalText.setText("小计" + String.format("%.2f", subtotal) + "元");
+
+        //显示总价
+        double allMoney = deliveryFee + subtotal;
+        TextView allMoneyText = findViewById(R.id.allmoney);
+        allMoneyText.setText("订单总价: " + String.format("%.2f", allMoney) + "元");
+
         if (carJson != null && !carJson.isEmpty()) {
             Gson gson = new Gson();
             Type type = new TypeToken<List<TakeOutValue>>() {}.getType();

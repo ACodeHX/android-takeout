@@ -103,7 +103,6 @@
                 android:id="@+id/subtotal"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
-                android:text="小计"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/deliveryfee" />
         </androidx.constraintlayout.widget.ConstraintLayout>
