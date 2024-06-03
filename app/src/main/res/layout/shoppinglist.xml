@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="350dp"
+    android:orientation="vertical"
+    android:padding="0dp">
+
+    <TextView
+        android:id="@+id/selectproducts"
+        android:layout_width="0dp"
+        android:layout_height="51dp"
+        android:text="已选商品:"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@id/shopping_recyclerview"
+        android:layout_width="409dp"
+        android:layout_height="297dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectproducts" />
+
+    <ImageView
+        android:id="@+id/clear"
+        android:layout_width="74dp"
+        android:layout_height="47dp"
+        app:layout_constraintEnd_toEndOf="@+id/selectproducts"
+        app:layout_constraintTop_toTopOf="@+id/selectproducts"
+        tools:srcCompat="@drawable/clear" />
+</androidx.constraintlayout.widget.ConstraintLayout>

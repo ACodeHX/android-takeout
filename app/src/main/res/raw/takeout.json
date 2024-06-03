@@ -56,13 +56,13 @@
   {
     "FoodID": 3,
     "name": "烤鸭",
-    "image": "telegram",
+    "image": "vegetable1",
     "price": 8.99
   },
   {
     "FoodID": 3,
     "name": "烤鸭",
-    "image": "telegram",
+    "image": "vegetable2",
     "price": 8.99
   },
   {

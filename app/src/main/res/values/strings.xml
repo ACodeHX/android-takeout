@@ -6,4 +6,5 @@
     <string name="newPass">新密码</string>
     <string name="meal_image">Meal Image</string>
     <string name="shipping_address">配送地址:</string>
+    <item name="shopping_recyclerview" type="id" />
 </resources>
