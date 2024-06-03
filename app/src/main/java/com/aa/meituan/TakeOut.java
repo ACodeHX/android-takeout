@@ -27,6 +27,7 @@ import java.util.List;
 public class TakeOut extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ImageView backStore;
+    private ImageView showImage;
     private Button judgePay;
     private double totalPrice = 0.0; // 设置总价
     private List<TakeOutValue> takeOutValueList;
@@ -57,7 +58,6 @@ public class TakeOut extends AppCompatActivity {
         Intent intent = getIntent();
         String storeId = intent.getStringExtra("STORE_ID");
 
-
         TakeOutAdapter adapter = new TakeOutAdapter(takeOutValueList, this);
         recyclerView.setAdapter(adapter);
 
@@ -70,6 +70,14 @@ public class TakeOut extends AppCompatActivity {
         }
         // 更新适配器数据
         adapter.notifyDataSetChanged();
+        //
+        /*showImage = findViewById(R.id.meal_image);
+        showImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });*/
 
         judgePay = findViewById(R.id.payFood);
         judgePay.setOnClickListener(new View.OnClickListener() {

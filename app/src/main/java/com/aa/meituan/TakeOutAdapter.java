@@ -1,5 +1,6 @@
 package com.aa.meituan;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,6 +41,12 @@ public class TakeOutAdapter extends RecyclerView.Adapter<TakeOutAdapter.MealView
         // 使用资源 ID 加载图像
         int imageResId = getImageResourceId(takeOutValue.getImage());
         holder.imageView.setImageResource(imageResId);
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showImageDialog(imageResId);
+            }
+        });
 
         holder.addButton.setOnClickListener(v -> {
             // 处理加入购物车逻辑
@@ -52,6 +59,14 @@ public class TakeOutAdapter extends RecyclerView.Adapter<TakeOutAdapter.MealView
             notifyItemChanged(position);
             // 如果需要更新总价，可以调用 updateTotalPrice()
         });
+    }
+
+    private void showImageDialog(int imageResId) {
+        Dialog dialog = new Dialog(context);
+        dialog.setContentView(R.layout.showtakeoutimage);
+        ImageView largeImageView = dialog.findViewById(R.id.meal_image);
+        largeImageView.setImageResource(imageResId);
+        dialog.show();
     }
 
     //购买商品的数量

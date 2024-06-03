@@ -49,7 +49,7 @@ public class Pay extends AppCompatActivity {
         // 初始化购物车数据为一个空列表
         carItems = new ArrayList<>();
 
-        // 获取传递的购物车数据
+        // 接收购物车数据
         Intent intent = getIntent();
         String carJson = intent.getStringExtra("carItems");
         //获取配送费的数据
@@ -57,12 +57,10 @@ public class Pay extends AppCompatActivity {
         int deliveryFee = intentFee.getIntExtra("DELIVERY", 0);
         TextView deliveryfeeText = findViewById(R.id.deliveryfee);
         deliveryfeeText.setText("配送费: " + deliveryFee + "元");
-
         //显示小结
         double subtotal = intent.getDoubleExtra("totalPrice", 0.0);
         TextView subtotalText = findViewById(R.id.subtotal);
         subtotalText.setText("小计" + String.format("%.2f", subtotal) + "元");
-
         //显示总价
         double allMoney = deliveryFee + subtotal;
         TextView allMoneyText = findViewById(R.id.allmoney);
