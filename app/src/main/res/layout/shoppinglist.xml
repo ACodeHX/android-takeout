@@ -33,4 +33,5 @@
         app:layout_constraintEnd_toEndOf="@+id/selectproducts"
         app:layout_constraintTop_toTopOf="@+id/selectproducts"
         tools:srcCompat="@drawable/clear" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

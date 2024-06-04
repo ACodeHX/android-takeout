@@ -136,9 +136,16 @@ public class TakeOut extends AppCompatActivity {
         BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
         View bottomSheetView = LayoutInflater.from(this).inflate(R.layout.shoppinglist, null);
 
+        RecyclerView recyclerView = bottomSheetView.findViewById(R.id.shopping_recyclerview);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        ShoppingAdapter adapter = new ShoppingAdapter(filteredList, this); // 使用已过滤的商品列表
+        recyclerView.setAdapter(adapter);
+
         bottomSheetDialog.setContentView(bottomSheetView);
         bottomSheetDialog.show();
     }
+
 
     private void loadMealsFromJson(String storeId) {
         if (storeId != null) { // 添加空引用检查
