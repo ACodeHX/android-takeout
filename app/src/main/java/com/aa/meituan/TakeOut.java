@@ -133,14 +133,28 @@ public class TakeOut extends AppCompatActivity {
     }
 
     private void showBottomSheetDialog() {
+        final Context context = this;
         BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
-        View bottomSheetView = LayoutInflater.from(this).inflate(R.layout.shoppinglist, null);
+        final View bottomSheetView = LayoutInflater.from(this).inflate(R.layout.shoppinglist, null);
+        final Button clearButton = bottomSheetView.findViewById(R.id.clear);
+
 
         RecyclerView recyclerView = bottomSheetView.findViewById(R.id.shopping_recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+
         ShoppingAdapter adapter = new ShoppingAdapter(filteredList, this); // 使用已过滤的商品列表
         recyclerView.setAdapter(adapter);
+        //清空按钮
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for (TakeOutValue item : filteredList) {
+                    item.setQuantity(0);
+                }
+                adapter.notifyDataSetChanged();
+            }
+        });
 
         bottomSheetDialog.setContentView(bottomSheetView);
         bottomSheetDialog.show();

@@ -129,10 +129,12 @@
 
             <Button
                 android:id="@+id/select_store"
-                android:layout_width="325dp"
+                android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:text="未选商品"
                 android:background="@color/red"
+                android:text="未选商品"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/payFood"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>

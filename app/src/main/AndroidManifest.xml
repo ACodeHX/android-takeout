@@ -27,6 +27,7 @@
         <activity android:name=".StoreMinute"></activity>
         <activity android:name=".TakeOut" />
         <activity android:name=".Pay" />
-    </application>
 
+    </application>
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

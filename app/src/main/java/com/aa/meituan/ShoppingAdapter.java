@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ShoppingViewHolder> {
@@ -34,8 +36,19 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.Shoppi
         holder.priceTextView.setText(String.format("$%.2f", item.getPrice()));
         holder.quantityTextView.setText(String.valueOf(item.getQuantity()));
 
-        int imageResId = context.getResources().getIdentifier(item.getImage(), "drawable", context.getPackageName());
-        holder.imageView.setImageResource(imageResId);
+        holder.minusValue.setOnClickListener(v -> {
+            int quantity = item.getQuantity();
+            if (quantity > 0) {
+                item.setQuantity(quantity - 1);
+                notifyDataSetChanged();
+            }
+        });
+
+        holder.addValue.setImageResource(R.drawable.car_add);
+        holder.addValue.setOnClickListener(v -> {
+            item.setQuantity(item.getQuantity() + 1);
+            notifyDataSetChanged();
+        });
     }
 
     @Override
@@ -45,14 +58,15 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.Shoppi
 
     static class ShoppingViewHolder extends RecyclerView.ViewHolder {
         TextView nameTextView, priceTextView, quantityTextView;
-        ImageView imageView;
+        ImageView addValue, minusValue;
 
         ShoppingViewHolder(View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.shopping_item_name);
             priceTextView = itemView.findViewById(R.id.shopping_item_price);
             quantityTextView = itemView.findViewById(R.id.shopping_item_quantity);
-            imageView = itemView.findViewById(R.id.shopping_item_image);
+            addValue = itemView.findViewById(R.id.addvalue);
+            minusValue = itemView.findViewById(R.id.minusvalue);
         }
     }
 }
