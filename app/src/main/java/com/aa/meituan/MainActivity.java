@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         passET = findViewById(R.id.passwd);         //密码
         loginBUT = findViewById(R.id.login_but);    //登陆按钮
         regBUT = findViewById(R.id.register);       //注册按钮
-        userData = new DatabaseHelper(this);
+        userData = new DatabaseHelper(this);//数据库
 
         //注册按钮
         regBUT.setOnClickListener(new View.OnClickListener() {

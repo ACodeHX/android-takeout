@@ -2,6 +2,7 @@ package com.aa.meituan;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -132,33 +133,48 @@ public class TakeOut extends AppCompatActivity {
         });
     }
 
+    //底部出弹窗
     private void showBottomSheetDialog() {
-        final Context context = this;
-        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
-        final View bottomSheetView = LayoutInflater.from(this).inflate(R.layout.shoppinglist, null);
-        final Button clearButton = bottomSheetView.findViewById(R.id.clear);
+            // 获取当前上下文
+            final Context context = this;
 
+            // 创建一个新的 BottomSheetDialog 对象
+            BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
 
-        RecyclerView recyclerView = bottomSheetView.findViewById(R.id.shopping_recyclerview);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            // 从布局文件 shoppinglist.xml 中膨胀出一个视图对象
+            final View bottomSheetView = LayoutInflater.from(this).inflate(R.layout.shoppinglist, null);
 
+            // 获取清空按钮的引用
+            final Button clearButton = bottomSheetView.findViewById(R.id.clear);
 
-        ShoppingAdapter adapter = new ShoppingAdapter(filteredList, this); // 使用已过滤的商品列表
-        recyclerView.setAdapter(adapter);
-        //清空按钮
-        clearButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                for (TakeOutValue item : filteredList) {
-                    item.setQuantity(0);
+            // 获取 RecyclerView 的引用，并设置其布局管理器为 LinearLayoutManager
+            RecyclerView recyclerView = bottomSheetView.findViewById(R.id.shopping_recyclerview);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+            // 创建并设置适配器，以显示经过过滤的商品列表
+            ShoppingAdapter adapter = new ShoppingAdapter(filteredList, this);
+            recyclerView.setAdapter(adapter);
+
+            // 为清空按钮设置点击监听器
+            clearButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // 清空 filteredList 中每个商品的数量
+                    for (TakeOutValue item : filteredList) {
+                        item.setQuantity(0);
+                    }
+                    // 通知适配器数据已更改，以刷新 RecyclerView
+                    adapter.notifyDataSetChanged();
                 }
-                adapter.notifyDataSetChanged();
-            }
-        });
+            });
 
-        bottomSheetDialog.setContentView(bottomSheetView);
-        bottomSheetDialog.show();
-    }
+            // 设置 BottomSheetDialog 的内容视图为上面膨胀出的视图
+            bottomSheetDialog.setContentView(bottomSheetView);
+
+            // 显示 BottomSheetDialog
+            bottomSheetDialog.show();
+        }
+
 
 
     private void loadMealsFromJson(String storeId) {
@@ -208,6 +224,6 @@ public class TakeOut extends AppCompatActivity {
 
         Button selectStore = findViewById(R.id.select_store);
         judgePay.setText("去结算");
-        selectStore.setText("支付 (" + String.format("%.2f", totalPrice) + "元)"); // 更新支付按钮上的文本显示
+        selectStore.setText("店铺详细,小计 (" + String.format("%.2f", totalPrice) + "元)"); // 更新支付按钮上的文本显示
     }
 }
