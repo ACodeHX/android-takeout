@@ -16,50 +16,5 @@
     "storeEvaluate": "美味咖啡",
     "deliveryTime": "预计时间18:00",
     "deliveryFee": 8
-  },
-  {
-    "storeID": 3,
-    "storeName": "烤鸭脖",
-    "soldMonthly": "月售50",
-    "storeImage": "recom_three",
-    "storeEvaluate": "美味烤鸭勃",
-    "deliveryTime": "预计时间52:00",
-    "deliveryFee": 3
-  },
-  {
-    "storeID": 4,
-    "storeName": "蜜雪冰城",
-    "soldMonthly": "月售50",
-    "storeImage": "mxbc",
-    "storeEvaluate": "蜜雪冰城甜蜜蜜",
-    "deliveryTime": "预计时间16:00",
-    "deliveryFee": 7
-  },
-  {
-    "storeID": 5,
-    "storeName": "奈雪の茶",
-    "soldMonthly": "月售50",
-    "storeImage": "nxdc",
-    "storeEvaluate": "奈雪の茶毫克",
-    "deliveryTime": "预计时间22:00",
-    "deliveryFee": 9
-  },
-  {
-    "storeID": 6,
-    "storeName": "肉食店",
-    "soldMonthly": "月售50",
-    "storeImage": "redlogo",
-    "storeEvaluate": "吃饭就来这",
-    "deliveryTime": "预计时间25:00",
-    "deliveryFee": 10
-  },
-  {
-    "storeID": 7,
-    "storeName": "烤肉店",
-    "soldMonthly": "月售50",
-    "storeImage": "barbecue1",
-    "storeEvaluate": "芭比Q",
-    "deliveryTime": "预计时间28:00",
-    "deliveryFee": 10
   }
 ]

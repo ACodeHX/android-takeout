@@ -1,7 +1,5 @@
 package com.aa.meituan;
 
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,10 +9,10 @@ import android.widget.Toast;
 import net.sqlcipher.database.SQLiteDatabase;
 import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
-    private EditText userET;
-    private EditText passET;
+    private EditText user;
+    private EditText password;
     private Button loginBUT;
-    private Button regBUT;
+    private Button singUpBut;
     private DatabaseHelper userData;
 
     @Override
@@ -23,14 +21,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         SQLiteDatabase.loadLibs(this);
-        userET = findViewById(R.id.user);           //用户
-        passET = findViewById(R.id.passwd);         //密码
+        user = findViewById(R.id.user);           //用户
+        password = findViewById(R.id.passwd);         //密码
         loginBUT = findViewById(R.id.login_but);    //登陆按钮
-        regBUT = findViewById(R.id.register);       //注册按钮
+        singUpBut = findViewById(R.id.register);       //注册按钮
         userData = new DatabaseHelper(this);//数据库
 
         //注册按钮
-        regBUT.setOnClickListener(new View.OnClickListener() {
+        singUpBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent regIntent = new Intent(MainActivity.this, RegisterActivity.class);
@@ -42,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
         loginBUT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String userValues = userET.getText().toString();
-                String passValues = passET.getText().toString();
+                String userValues = user.getText().toString();
+                String passValues = password.getText().toString();
 
                 if (userData.isUserExists(userValues)) {
                     if (userData.checkUser(userValues, passValues)) {

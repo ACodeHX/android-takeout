@@ -51,11 +51,11 @@
         android:layout_marginStart="176dp"
         android:layout_marginTop="84dp"
         android:layout_marginEnd="176dp"
-        android:gravity="center"
-        android:text="美团"
-        android:textSize="50dp"
-        android:textColor="#808080"
         android:background="@color/FF9C1A"
+        android:gravity="center"
+        android:text="外卖点单"
+        android:textColor="#795548"
+        android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,6 +75,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="489dp" />
+        app:layout_constraintGuide_begin="500dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,8 +15,8 @@ import java.io.IOException;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText newUser;
-    private EditText newPass;
-    private Button retLogin;
+    private EditText newPassword;
+    private Button signUpLogin;
     private Button register;
     private DatabaseHelper userDate;
 
@@ -27,9 +27,9 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.register);
 
         newUser = findViewById(R.id.newUser);
-        newPass = findViewById(R.id.regPass);
+        newPassword = findViewById(R.id.regPass);
         register = findViewById(R.id.regSucceed);
-        retLogin = findViewById(R.id.returnLogin);
+        signUpLogin = findViewById(R.id.returnLogin);
         userDate = new DatabaseHelper(this);
 
         //注册用户的按钮
@@ -37,7 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String userName = newUser.getText().toString();
-                String passVaule = newPass.getText().toString();
+                String passVaule = newPassword.getText().toString();
 
                 //判断账号和密码是否为空
                 if (userName.isEmpty() || passVaule.isEmpty()) {
@@ -58,7 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         //返回登陆界面
-        retLogin.setOnClickListener(new View.OnClickListener() {
+        signUpLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
