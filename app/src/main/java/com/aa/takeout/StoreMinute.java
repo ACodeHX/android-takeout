@@ -1,4 +1,4 @@
-package com.aa.meituan;
+package com.aa.takeout;
 
 public class StoreMinute {
     private String storeID;                  //商店id

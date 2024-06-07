@@ -1,4 +1,4 @@
-package com.aa.meituan;
+package com.aa.takeout;
 
 import org.junit.Test;
 

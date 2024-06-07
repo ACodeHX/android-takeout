@@ -1,11 +1,9 @@
-package com.aa.meituan;
+package com.aa.takeout;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,10 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Store extends AppCompatActivity {
     private RecyclerView recyclerView;

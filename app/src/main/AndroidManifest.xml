@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.aa.meituan">
+    package="com.aa.takeout">
 
     <application
         android:allowBackup="true"
@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Meituan"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name="com.aa.takeout.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,14 +23,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RegisterActivity"
+            android:name="com.aa.takeout.RegisterActivity"
             android:exported="true">
 
         </activity>
-        <activity android:name=".Store"></activity>
-        <activity android:name=".StoreMinute"></activity>
-        <activity android:name=".TakeOut" />
-        <activity android:name=".Pay" />
+        <activity android:name="com.aa.takeout.Store"></activity>
+        <activity android:name="com.aa.takeout.StoreMinute"></activity>
+        <activity android:name="com.aa.takeout.TakeOut" />
+        <activity android:name="com.aa.takeout.Pay" />
 
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
