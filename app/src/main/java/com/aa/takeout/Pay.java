@@ -95,7 +95,6 @@ public class Pay extends AppCompatActivity {
     }
 
     private void showDialog() {
-        //创建一个对话框
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("支付确认")
                 .setMessage("你确定要进行支付吗？")
@@ -109,8 +108,6 @@ public class Pay extends AppCompatActivity {
                     Toast.makeText(Pay.this, "支付取消", Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
                 });
-
-        // 显示对话框
         AlertDialog dialog = builder.create();
         dialog.show();
     }

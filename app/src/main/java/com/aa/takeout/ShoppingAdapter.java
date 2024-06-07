@@ -39,6 +39,8 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.Shoppi
             if (quantity > 0) {
                 item.setQuantity(quantity - 1);
                 notifyDataSetChanged();
+                double price = item.getPrice();
+                ((TakeOut) context).updateTotalPrice(-price);
             }
         });
 
@@ -46,6 +48,8 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.Shoppi
         holder.addValue.setOnClickListener(v -> {
             item.setQuantity(item.getQuantity() + 1);
             notifyDataSetChanged();
+            double price = item.getPrice();
+            ((TakeOut) context).updateTotalPrice(price);
         });
     }
 

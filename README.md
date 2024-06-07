@@ -7,12 +7,13 @@
 
 # 安装
 - 使用Android Studio 2021.2.1以下的版本可能会运行不了
-- 使用一下命令克隆项目:
+- 使用以下命令克隆项目:
 ```shell
 git clone https://github.com/ACodeHX/android-takeout.git
 ```
 
 # 展示
+图片均为网络下载,若有侵权,敬请谅解,联系我删除.
 
 <img src="https://github.com/ACodeHX/android-takeout/assets/127362983/e9750440-1855-4059-a7a5-c30899c07d79" alt="Screenshot" width="200">
 

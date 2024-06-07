@@ -1,5 +1,6 @@
 package com.aa.takeout;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -153,18 +154,19 @@ public class TakeOut extends AppCompatActivity {
 
             // 为清空按钮设置点击监听器
             clearButton.setOnClickListener(new View.OnClickListener() {
+                @SuppressLint("NotifyDataSetChanged")
                 @Override
                 public void onClick(View view) {
                     // 清空 filteredList 中每个商品的数量
+                    double totalCost = 0;
                     for (TakeOutValue item : filteredList) {
+                        totalCost += item.getPrice() * item.getQuantity();
                         item.setQuantity(0);
                     }
-                    // 通知适配器数据已更改，以刷新 RecyclerView
+                    updateTotalPrice(-totalCost);
                     adapter.notifyDataSetChanged();
                 }
             });
-
-            // 设置 BottomSheetDialog 的内容视图为上面膨胀出的视图
             bottomSheetDialog.setContentView(bottomSheetView);
 
             // 显示 BottomSheetDialog
@@ -220,6 +222,10 @@ public class TakeOut extends AppCompatActivity {
 
         Button selectStore = findViewById(R.id.select_store);
         judgePay.setText("去结算");
-        selectStore.setText("店铺详细,小计 (" + String.format("%.2f", totalPrice) + "元)"); // 更新支付按钮上的文本显示
+        if (totalPrice > 0) {
+            selectStore.setText("店铺详细,小计 (" + String.format("%.2f", totalPrice) + "元)"); // 更新支付按钮上的文本显示
+        } else {
+            selectStore.setText("未选商品");
+        }
     }
 }
