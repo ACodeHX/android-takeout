@@ -16,5 +16,4 @@ git clone https://github.com/ACodeHX/android-takeout.git
 
 <img src="https://github.com/ACodeHX/android-takeout/assets/127362983/5e2e43fb-64f0-4e7c-b6c1-7483020b4e74" alt="Screenshot" width="200">
 <img src="https://github.com/ACodeHX/android-takeout/assets/127362983/d89897cb-1dc7-4397-8594-743529700ab9" alt="Screenshot" width="200">
-<img src="https://github.com/ACodeHX/android-takeout/assets/127362983/8bfe11f9-9b32-463d-91c8-38630302f48e" alt="Screenshot" width="200">
 
