@@ -68,16 +68,6 @@ public class Store extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         itemList = new ArrayList<>();
 
-        //直接跳转到TakeOut的按钮
-        skipTakeout = findViewById(R.id.judgetake1);
-        skipTakeout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Store.this, TakeOut.class);
-                startActivity(intent);
-            }
-        });
-
         //调用loadJSONFromRaw读取store.json的数据，使用Gson解析为itemList
         String jsonString = loadJSONFromRaw(R.raw.store);
         if (jsonString != null) {

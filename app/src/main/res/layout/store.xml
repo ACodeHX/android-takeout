@@ -39,14 +39,6 @@
         android:id="@+id/include"
         layout="@layout/storeitem" />
 
-    <Button
-        android:id="@+id/judgetake1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/recycler_view1"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/backlogin"
         android:layout_width="50dp"

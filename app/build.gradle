@@ -10,14 +10,13 @@ android {
         minSdk 22
         targetSdk 32
         versionCode 1
-        versionName "1.0"
+        versionName "1.1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -25,6 +24,24 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def apkFile = output.outputFileName
+            output.outputFileName = new File("E:\\project\\Android\\Meituan\\release\\TakeOut.apk").name
+            println("Modified APK path: " + output.outputFileName)
+
+            def assembleTaskName = "assemble${variant.name.capitalize()}"
+            project.tasks.named(assembleTaskName).configure { task ->
+                task.doLast {
+                    copy {
+                        from apkFile
+                        into "E:\\project\\Android\\Meituan\\release\\TakeOut.apk"
+                    }
+                }
+            }
+        }
     }
 }
 
