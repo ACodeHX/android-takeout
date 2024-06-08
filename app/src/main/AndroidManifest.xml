@@ -31,6 +31,7 @@
         <activity android:name="com.aa.takeout.StoreMinute"></activity>
         <activity android:name="com.aa.takeout.TakeOut" />
         <activity android:name="com.aa.takeout.Pay" />
+        <activity android:name="com.aa.takeout.ForgetPasswd" />
 
     </application>
     <uses-permission android:name="android.permission.INTERNET" />

@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import net.sqlcipher.database.SQLiteDatabase;
 import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     private EditText user;
     private EditText password;
+    private TextView forgetPasswd;
     private Button loginBUT;
     private Button singUpBut;
     private DatabaseHelper userData;
@@ -21,11 +23,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         SQLiteDatabase.loadLibs(this);
-        user = findViewById(R.id.user);           //用户
-        password = findViewById(R.id.passwd);         //密码
-        loginBUT = findViewById(R.id.login_but);    //登陆按钮
-        singUpBut = findViewById(R.id.register);       //注册按钮
-        userData = new DatabaseHelper(this);//数据库
+        user = findViewById(R.id.user);                         //用户
+        password = findViewById(R.id.passwd);                   //密码
+        forgetPasswd = findViewById(R.id.forgetpasswd);         //忘记密码
+        loginBUT = findViewById(R.id.login_but);                //登陆按钮
+        singUpBut = findViewById(R.id.register);                //注册按钮
+        userData = new DatabaseHelper(this);            //数据库
 
         //注册按钮
         singUpBut.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +57,14 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(MainActivity.this, "用户不存在", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+        forgetPasswd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "功能未实现", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, ForgetPasswd.class);
+                startActivity(intent);
             }
         });
     }

@@ -4,28 +4,26 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/project/Android/Meituan/app/src/main/res/drawable/store_img2.xml" value="0.254" />
-        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/pay.xml" value="0.264" />
-        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/payitem.xml" value="0.264" />
-        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/paylist.xml" value="0.10054347826086957" />
-        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/register.xml" value="0.2" />
-        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/shopping.xml" value="0.264" />
-        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/shoppinginglist.xml" value="0.1" />
-        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/shoppingitem.xml" value="0.2" />
-        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/shoppingitme2.xml" value="0.24947916666666667" />
-        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/shoppinglist.xml" value="0.25" />
-        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/showtakeoutimage.xml" value="0.1" />
+        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/forgetpasswd.xml" value="0.1" />
+        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/pay.xml" value="0.1644021739130435" />
+        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/register.xml" value="0.182518115942029" />
+        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/shoppingitem.xml" value="0.1644021739130435" />
+        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/shoppinglist.xml" value="0.1644021739130435" />
+        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/showtakeoutimage.xml" value="0.1644021739130435" />
         <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/store.xml" value="0.2" />
-        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/storeitem.xml" value="0.2662037037037037" />
-        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/storelist.xml" value="0.24947916666666667" />
+        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/storeitem.xml" value="0.23489583333333333" />
+        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/storelist.xml" value="0.264" />
         <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/strings.xml" value="0.182518115942029" />
         <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/take_out.xml" value="0.264" />
-        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/take_out2.xml" value="0.36574074074074076" />
+        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/take_out2.xml" value="0.2" />
         <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/take_out_item.xml" value="0.264" />
-        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/take_out_item2.xml" value="0.17291666666666666" />
-        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/take_out_list2.xml" value="0.17291666666666666" />
         <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/takeout2.xml" value="0.264" />
-        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/takeoutitem.xml" value="0.176" />
+        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/takeout_activity.xml" value="0.24947916666666667" />
+        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/takeout_item.xml" value="0.23489583333333333" />
+        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/takeout_list.xml" value="0.23489583333333333" />
+        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/takeout_main.xml" value="0.24947916666666667" />
+        <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/takeoutlist.xml" value="0.12132725430597771" />
         <entry key="..\:/project/Android/Meituan/app/src/main/res/layout/value.xml" value="0.4" />
       </map>
     </option>
