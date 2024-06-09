@@ -1,5 +1,6 @@
 package com.aa.takeout;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import net.sqlcipher.database.SQLiteDatabase;
@@ -69,5 +70,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return exists;
+    }
+    //修改密码
+    public boolean updatePassword(String username, String newPassword) {
+        SQLiteDatabase db = getWritableDatabase(PASSPHRASE);
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMN_PASSWORD, newPassword);
+        int result = db.update(TABLE_NAME, contentValues, COLUMN_USERNAME + " = ?", new String[]{username});
+        db.close();
+        return result > 0;
     }
 }

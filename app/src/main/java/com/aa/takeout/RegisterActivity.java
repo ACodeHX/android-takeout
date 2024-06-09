@@ -110,7 +110,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (judgeEmail) {
                     //设置验证码的逻辑
                     Random random = new Random();
-                    authCodeValue = random.nextInt(100000);
+                    authCodeValue = 100000 + random.nextInt(900000);
                     AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
                     builder.setTitle("请在5分钟输入你的验证码")
                             .setMessage("您的验证码为: " + authCodeValue)

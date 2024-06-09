@@ -28,8 +28,7 @@ public class Store extends AppCompatActivity {
     private StoreAdapter storeAdapter;
     private List<StoreMinute> itemList;
     private TextView showStore;
-    private ImageView showImage;
-    private ImageView backLogin;
+    private ImageView showImage, backLogin;
     private Button skipTakeout;
 
     @Override

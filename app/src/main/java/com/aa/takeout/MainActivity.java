@@ -10,11 +10,9 @@ import android.widget.Toast;
 import net.sqlcipher.database.SQLiteDatabase;
 import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
-    private EditText user;
-    private EditText password;
+    private EditText user, password;
     private TextView forgetPasswd;
-    private Button loginBUT;
-    private Button singUpBut;
+    private Button loginBUT, singUpBut;
     private DatabaseHelper userData;
 
     @Override
@@ -51,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
                         Intent StoIntent = new Intent(MainActivity.this, Store.class);
                         startActivity(StoIntent);
+                        finish();
                     } else {
                         Toast.makeText(MainActivity.this, "登陆失败", Toast.LENGTH_SHORT).show();
                     }
@@ -59,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        //忘记密码功能
         forgetPasswd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
