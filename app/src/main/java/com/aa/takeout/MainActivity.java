@@ -11,7 +11,7 @@ import net.sqlcipher.database.SQLiteDatabase;
 import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     private EditText user, password;
-    private TextView forgetPasswd;
+    private TextView forgetPasswd, author;
     private Button loginBUT, singUpBut;
     private DatabaseHelper userData;
 
@@ -62,10 +62,12 @@ public class MainActivity extends AppCompatActivity {
         forgetPasswd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "功能未实现", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, ForgetPasswd.class);
                 startActivity(intent);
             }
         });
+
+        author = findViewById(R.id.author);
+        author.setText("@ACodeHX");
     }
 }

@@ -1,5 +1,6 @@
 package com.aa.takeout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,7 +29,7 @@ public class Store extends AppCompatActivity {
     private StoreAdapter storeAdapter;
     private List<StoreMinute> itemList;
     private TextView showStore;
-    private ImageView showImage, backLogin;
+    private ImageView showImage, backLogin ,user ,home;
     private Button skipTakeout;
 
     @Override
@@ -53,7 +54,25 @@ public class Store extends AppCompatActivity {
         backLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                Intent intent = new Intent(Store.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //未实现
+        home = findViewById(R.id.homeimage);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Store.this, "未实现!!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        user = findViewById(R.id.userimage);
+        user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Store.this, "未实现!!!", Toast.LENGTH_SHORT).show();
             }
         });
 
