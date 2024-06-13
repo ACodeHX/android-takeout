@@ -2,7 +2,7 @@
   {
     "storeID": 1,
     "storeName": "快乐柠檬",
-    "soldMonthly": "月售50",
+    "soldMonthly": "月售1000",
     "storeImage": "happylogo",
     "storeEvaluate": "好吃",
     "deliveryTime": "预计时间30:00",
@@ -11,7 +11,7 @@
   {
     "storeID": 2,
     "storeName": "coco",
-    "soldMonthly": "月售50",
+    "soldMonthly": "月售888",
     "storeImage": "javacoco1",
     "storeEvaluate": "美味咖啡",
     "deliveryTime": "预计时间18:00",

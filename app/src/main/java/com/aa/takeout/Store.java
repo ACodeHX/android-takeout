@@ -61,6 +61,7 @@ public class Store extends AppCompatActivity {
 
         //未实现
         home = findViewById(R.id.homeimage);
+        home.setVisibility(View.GONE);      //隐藏图片
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,6 +70,7 @@ public class Store extends AppCompatActivity {
         });
 
         user = findViewById(R.id.userimage);
+        user.setVisibility(View.GONE);      //隐藏图片
         user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
