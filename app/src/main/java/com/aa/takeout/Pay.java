@@ -77,7 +77,6 @@ public class Pay extends AppCompatActivity {
             Log.e("DEBUG", "Received empty carJson");
         }
 
-
         // 设置 RecyclerView 显示购物车商品
         recyclerView = findViewById(R.id.pay_recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
